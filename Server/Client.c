@@ -219,7 +219,7 @@ void rr_server_client_craft_petal(struct rr_server_client *this,
                 rr_simulation_get_health(&server->simulation,
                                          this->player_info->flower_id);
             rr_component_health_set_max_health(health,
-                                               200 * pow(1.0256, level - 1));
+                                               300 * pow(1.0256, level - 1));
             health->damage = health->max_health * 0.1;
         }
     }
@@ -251,7 +251,7 @@ int rr_server_client_read_from_api(struct rr_server_client *this,
         return 0;
     if (this->dev)
     {
-        this->checkpoint = 4;
+        // this->checkpoint = 4; exo 3 leaf 1 bone 1 seed 1 magnet 3 shell 3 fireball 1 berry 1 crest 1 feather 1 nest 2 egg 2 bub 1 meat (20)
         this->experience = 0;
         for (uint32_t lvl = 2; lvl <= 140; ++lvl)
             this->experience += xp_to_reach_level(lvl);

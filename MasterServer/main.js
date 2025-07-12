@@ -112,7 +112,7 @@ function apply_missing_defaults(account)
         password: "",
         username: "",
         xp: 0,
-        petals: {"1:0": 5},
+        petals: {"1:0":10, "8:1":1, "10:1":1, "12:0":1},
         failed_crafts: {},
         mob_gallery: {},
         checkpoint: 0,

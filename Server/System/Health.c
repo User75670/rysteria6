@@ -274,13 +274,13 @@ static uint8_t damage_effect(struct rr_simulation *simulation, EntityIdx target,
     {
         struct rr_component_mob *mob =
             rr_simulation_get_mob(simulation, attacker);
-        if (mob->id == rr_mob_id_pachycephalosaurus &&
-            mob->rarity >= rr_rarity_id_exotic)
-        {
-            struct rr_component_physical *physical =
-                rr_simulation_get_physical(simulation, target);
-            physical->stun_ticks = 25;
-        }
+        // if (mob->id == rr_mob_id_pachycephalosaurus &&
+        //     mob->rarity >= rr_rarity_id_exotic)
+        // {
+        //     struct rr_component_physical *physical =
+        //         rr_simulation_get_physical(simulation, target);
+        //     physical->stun_ticks = 0;
+        // }
     }
     else if (rr_simulation_has_petal(simulation, attacker))
     {

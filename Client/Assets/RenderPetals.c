@@ -441,6 +441,15 @@ void rr_renderer_draw_petal(struct rr_renderer *renderer, uint8_t id,
             rr_renderer_fill(renderer);
             rr_renderer_stroke(renderer);
             break;
+        case rr_petal_id_dako_egg:
+            rr_renderer_set_stroke(renderer, 0xff0066aa);
+            rr_renderer_set_fill(renderer, 0xff2288ff);
+            rr_renderer_set_line_width(renderer, 3);
+            rr_renderer_begin_path(renderer);
+            rr_renderer_arc(renderer, 0, 0, 12);
+            rr_renderer_fill(renderer);
+            rr_renderer_stroke(renderer);
+            break;
         case rr_petal_id_magnet:
             rr_renderer_scale(renderer, 0.5);
             rr_renderer_translate(renderer, -20.00, 0.00);

@@ -138,7 +138,10 @@ enum rr_petal_id
     rr_petal_id_sand,      // 31
     rr_petal_id_mint,      // 32
 
-    rr_petal_id_max,       // 33
+    rr_petal_id_dako_egg,       // 33
+
+    rr_petal_id_max,   // 34
+
 };
 
 enum rr_mob_id
@@ -276,7 +279,7 @@ struct rr_maze_declaration
     float grid_size;
     struct rr_maze_grid *maze;
     uint8_t checkpoint_count;
-    struct rr_checkpoint checkpoints[11];
+    struct rr_checkpoint checkpoints[13];
 };
 
 #define RR_DECLARE_MAZE(name, size)                                            \

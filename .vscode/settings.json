@@ -13,5 +13,6 @@
         "__locale": "c",
         "locale": "c",
         "vector.h": "c"
-    }
+    },
+    "cmake.sourceDirectory": "/workspace/rysteria6/Client"
 }
