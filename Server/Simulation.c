@@ -65,7 +65,7 @@ static void set_special_zone(uint8_t biome, uint8_t (*fun)(), uint32_t x,
 uint8_t fern_zone() { return rr_frand() > 0.02 ? rr_mob_id_fern: rr_mob_id_tree; }
 uint8_t pter_meteor_zone()
 {
-    return rr_frand() > 0.06 ? rr_mob_id_pteranodon : rr_mob_id_meteor;
+    return rr_frand() > 0.03 ? rr_mob_id_pteranodon : rr_mob_id_meteor;
 }
 uint8_t ornith_pachy_zone()
 {
@@ -116,25 +116,25 @@ struct zone
     uint8_t (*spawn_func)();
 };
 
-#define ZONE_POSITION_COUNT 16
+#define ZONE_POSITION_COUNT 12
 
 static struct zone zone_positions[ZONE_POSITION_COUNT] = {
-    {0,0,2,2, meteor_zone},
-    {4,  0,  7,  3, fern_zone},
-    {6,  3,  3,  1, fern_zone},
-    {16, 3,  5,  4, pter_zone},
-    {18, 4,  1,  2, pter_meteor_zone},
-    {17, 8,  3,  2, ornith_pachy_zone},
-    {26, 11, 3,  3, trice_dako_zone},
-    {10, 22, 4,  3, anky_trex_zone},
-    {23, 22, 4,  3, edmo_zone},
-    {32, 19, 3, 2, quetz_fern_zone},
-    {16, 25, 5,  2, tree_zone},
-    {13, 27, 11, 4, tree_zone},
-    {2,  15, 6, 13, pter_zone},
-    {17, 12, 3, 3, dako_orni_zone},
-    {23, 7, 6, 3, trex_zone},
-    {0, 15, 2, 16, anky_edmo_zone},
+    {7, 33,  2,2, meteor_zone},
+    {6, 22,  6,  2, fern_zone},
+    // {6,  3,  3,  1, fern_zone},
+    // {16, 3,  5,  4, pter_zone},
+    {16, 25, 6,  3, pter_meteor_zone},
+    {27, 28, 3,  2, ornith_pachy_zone},
+    {29, 17, 7,  3, trice_dako_zone},
+    {18, 33, 3, 2, anky_trex_zone},
+    {24, 33, 4, 4, edmo_zone},
+    {26, 8,  3, 3, quetz_fern_zone},
+    {15, 12, 3,  3, tree_zone},
+    // {13, 27, 11, 4, tree_zone},
+    // {2,  15, 6, 13, pter_zone},
+    {9, 36, 3, 2, dako_orni_zone},
+    {28,33, 4, 7, trex_zone},
+    {28,11, 7, 3, anky_edmo_zone},
 
 };
 

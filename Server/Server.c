@@ -530,10 +530,10 @@ static int handle_lws_event(struct rr_server *this, struct lws *ws,
 
 #ifndef SANDBOX
             if (
-                strcmp(client->rivet_account.uuid, "d6db6579-16ab-409a-af38-a14605334622") == 0
-          // || strcmp(client->rivet_account.uuid, "44a2d7ce-4f94-4be7-a37b-975a4cfac0e6") == 0
-          // || strcmp(client->rivet_account.uuid, "e6644db9-9507-407d-9bf2-d9811041c355") == 0
-          //  strcmp(client->rivet_account.uuid, "a0dd9ea8-b49a-41bb-abe6-dd06a4817372") == 0
+                strcmp(client->rivet_account.uuid, "dc04d57b-2a96-4dcf-869e-8811c2e2932e") == 0
+          // || strcmp(client->rivet_account.uuid, "") == 0
+          // || strcmp(client->rivet_account.uuid, "") == 0
+          //  strcmp(client->rivet_account.uuid,   "") == 0
             )
 #endif
                 client->dev = 1;
