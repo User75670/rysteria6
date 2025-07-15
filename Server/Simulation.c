@@ -13,6 +13,8 @@
 
 // You should have received a copy of the GNU Affero General Public License
 // along with this program.  If not, see <https://www.gnu.org/licenses/>.
+#include <stdlib.h>
+#include <time.h>
 
 #include <Server/Simulation.h>
 
@@ -107,16 +109,17 @@ uint8_t anky_edmo_zone() {
     return rr_frand() > 0.3 ? rr_mob_id_ankylosaurus : rr_mob_id_edmontosaurus;
 }
 uint8_t garden_zone() {
+    srand(time(NULL));
+    float R = (float)rand() / (float)RAND_MAX;
     return
-    rr_frand() > 0.8 ? rr_mob_id_ant : 
-    rr_frand() > 0.65 ? rr_mob_id_hornet : 
-    rr_frand() > 0.5 ? rr_mob_id_dragonfly : 
-    rr_frand() > 0.4 ? rr_mob_id_honeybee : 
-    rr_frand() > 0.38 ? rr_mob_id_beehive : 
-    rr_frand() > 0.2 ? rr_mob_id_spider : 
-    rr_frand() > 0.1 ? rr_mob_id_house_centipede : rr_mob_id_lanternfly;
+    R > 0.8 ? rr_mob_id_ant : 
+    R > 0.65 ? rr_mob_id_hornet : 
+    R > 0.5 ? rr_mob_id_dragonfly : 
+    R > 0.4 ? rr_mob_id_honeybee : 
+    R > 0.38 ? rr_mob_id_beehive : 
+    R > 0.2 ? rr_mob_id_spider : 
+    R > 0.1 ? rr_mob_id_house_centipede : rr_mob_id_lanternfly;
 }
-
 struct zone
 {
     uint32_t x;
