@@ -106,6 +106,16 @@ uint8_t pter_zone() {
 uint8_t anky_edmo_zone() {
     return rr_frand() > 0.3 ? rr_mob_id_ankylosaurus : rr_mob_id_edmontosaurus;
 }
+uint8_t garden_zone() {
+    return
+    rr_frand() > 0.8 ? rr_mob_id_ant : 
+    rr_frand() > 0.65 ? rr_mob_id_hornet : 
+    rr_frand() > 0.5 ? rr_mob_id_dragonfly : 
+    rr_frand() > 0.4 ? rr_mob_id_honeybee : 
+    rr_frand() > 0.38 ? rr_mob_id_beehive : 
+    rr_frand() > 0.2 ? rr_mob_id_spider : 
+    rr_frand() > 0.1 ? rr_mob_id_house_centipede : rr_mob_id_lanternfly;
+}
 
 struct zone
 {
@@ -116,7 +126,7 @@ struct zone
     uint8_t (*spawn_func)();
 };
 
-#define ZONE_POSITION_COUNT 12
+#define ZONE_POSITION_COUNT 13
 
 static struct zone zone_positions[ZONE_POSITION_COUNT] = {
     {7, 33,  2,2, meteor_zone},
@@ -135,6 +145,7 @@ static struct zone zone_positions[ZONE_POSITION_COUNT] = {
     {9, 36, 3, 2, dako_orni_zone},
     {28,33, 4, 7, trex_zone},
     {28,11, 7, 3, anky_edmo_zone},
+    {14,35,  9, 3, garden_zone}
 
 };
 
