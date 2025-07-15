@@ -109,16 +109,43 @@ uint8_t anky_edmo_zone() {
     return rr_frand() > 0.3 ? rr_mob_id_ankylosaurus : rr_mob_id_edmontosaurus;
 }
 uint8_t garden_zone() {
-    srand(time(NULL));
-    float R = (float)rand() / (float)RAND_MAX;
-    return
-    R > 0.8 ? rr_mob_id_ant : 
-    R > 0.65 ? rr_mob_id_hornet : 
-    R > 0.5 ? rr_mob_id_dragonfly : 
-    R > 0.4 ? rr_mob_id_honeybee : 
-    R > 0.38 ? rr_mob_id_beehive : 
-    R > 0.2 ? rr_mob_id_spider : 
-    R > 0.1 ? rr_mob_id_house_centipede : rr_mob_id_lanternfly;
+    float seed = rr_frand();
+    float something = 0;
+    // something must not be >= 1
+    something += 0.03;
+    if (seed < something)
+        return rr_mob_id_fern;
+    something += 0.005;
+    if (seed < something)
+        return rr_mob_id_tree;
+    something += 0.0001;
+    if (seed < something)
+        return rr_mob_id_meteor;
+    something += 0.15;
+    if (seed < something)
+        return rr_mob_id_ant;
+    something += 0.02;
+    if (seed < something)
+        return rr_mob_id_beehive;
+    something += 0.15;
+    if (seed < something)
+        return rr_mob_id_hornet;
+    something += 0.2;
+    if (seed < something)
+        return rr_mob_id_dragonfly;
+    something += 0.08;
+    if (seed < something)
+        return rr_mob_id_honeybee;
+    something += 0.15;
+    if (seed < something)
+        return rr_mob_id_spider;
+    something += 0.06;
+    if (seed < something)
+        return rr_mob_id_house_centipede;
+    something += 0.15;
+    if (seed < something)
+        return rr_mob_id_lanternfly;
+    return rr_mob_id_lanternfly;
 }
 struct zone
 {
