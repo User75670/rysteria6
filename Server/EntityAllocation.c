@@ -17,6 +17,7 @@
 #include <Server/EntityAllocation.h>
 #include <Server/Client.h>
 #include <Server/Simulation.h>
+
 #include <Server/Waves.h>
 
 #include <math.h>
@@ -240,9 +241,12 @@ EntityIdx rr_simulation_alloc_mob(struct rr_simulation *this,
     {
         struct rr_component_arena *arena =
             rr_simulation_add_arena(this, entity);
+        
         rr_component_arena_set_biome(arena, rr_biome_id_beehive);
         rr_component_arena_spatial_hash_init(arena, this);
         set_respawn_zone(arena, 0, 0);
+        
+        
         for (uint32_t X = 0; X < arena->maze->maze_dim; ++X)
         {
             for (uint32_t Y = 0; Y < arena->maze->maze_dim; ++Y)
@@ -255,6 +259,7 @@ EntityIdx rr_simulation_alloc_mob(struct rr_simulation *this,
                     this, entity, (X + rr_frand()) * arena->maze->grid_size,
                     (Y + rr_frand()) * arena->maze->grid_size,
                     rr_mob_id_honeybee, rarity_id, team_id);
+
             }
         }
     }

@@ -129,6 +129,7 @@ void rr_component_flower_set_dead(struct rr_component_flower *this,
                 rr_component_relations_set_team(drop_relations,
                                                 rr_simulation_team_id_players);
             }
+            
         }
     }
     else
