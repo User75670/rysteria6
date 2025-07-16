@@ -154,7 +154,7 @@ struct rr_ui_element *rr_ui_petal_tooltip_init(uint8_t id, uint8_t rarity)
                           rr_ui_text_init(" T-Rex", 12, 0xffffffff), NULL),
                       -1, 0));
     }
-        else if (id == rr_petal_id_dako_egg)
+    else if (id == rr_petal_id_dako_egg)
     {
         rr_ui_container_add_element(
             this, rr_ui_set_justify(
@@ -167,7 +167,7 @@ struct rr_ui_element *rr_ui_petal_tooltip_init(uint8_t id, uint8_t rarity)
                           rr_ui_text_init(" Dakotaraptor", 12, 0xffffffff), NULL),
                       -1, 0));
     }
-            else if (id == rr_petal_id_pter_egg)
+    else if (id == rr_petal_id_pter_egg)
     {
         rr_ui_container_add_element(
             this, rr_ui_set_justify(
@@ -178,6 +178,19 @@ struct rr_ui_element *rr_ui_petal_tooltip_init(uint8_t id, uint8_t rarity)
                               RR_RARITY_NAMES[rarity >= 1 ? rarity - 1 : 0], 12,
                               RR_RARITY_COLORS[rarity >= 1 ? rarity - 1 : 0]),
                           rr_ui_text_init(" Pteranodon", 12, 0xffffffff), NULL),
+                      -1, 0));
+    }
+    else if (id == rr_petal_id_pachy_egg)
+    {
+        rr_ui_container_add_element(
+            this, rr_ui_set_justify(
+                      rr_ui_h_container_init(
+                          rr_ui_container_init(), 0, 0,
+                          rr_ui_text_init("Spawns: ", 12, 0xffe07422),
+                          rr_ui_text_init(
+                              RR_RARITY_NAMES[rarity >= 1 ? rarity - 1 : 0], 12,
+                              RR_RARITY_COLORS[rarity >= 1 ? rarity - 1 : 0]),
+                          rr_ui_text_init(" Pachycephalosaurus", 12, 0xffffffff), NULL),
                       -1, 0));
     }
     else if (id == rr_petal_id_berry)
