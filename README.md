@@ -1,5 +1,4 @@
-# Rysteria
-
-Many thanks to the developers of the original game.
-
-Build instructions can be found [here](https://github.com/PaulJohnson1/rrolf#readme).
+# Rysteria 6
+Rysteria fork.
+[![Open in Gitpod](https://www.gitpod.io/button/open-in-gitpod.svg)](https://gitpod.io/#https://github.com/User75670/rysteria6)
+Original game: github.com/maxnest0x0/rysteria
