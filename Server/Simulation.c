@@ -174,34 +174,34 @@ struct zone
     uint8_t (*spawn_func)();
 };
 
-#define ZONE_POSITION_COUNT 21
+#define ZONE_POSITION_COUNT 20
 
 static struct zone zone_positions[ZONE_POSITION_COUNT] = {
-    {7, 33,  2,2, meteor_zone},
-    {6, 22,  6,  2, fern_zone},
+    // {7, 33,  2,2, meteor_zone},
+    {25, 11,  2,  4, fern_zone},
     // {6,  3,  3,  1, fern_zone},
     // {16, 3,  5,  4, pter_zone},
-    {16, 25, 6,  3, pter_meteor_zone},
-    {27, 28, 3,  2, ornith_pachy_zone},
-    {29, 17, 7,  3, trice_dako_zone},
-    {18, 33, 3, 2, anky_trex_zone},
-    {24, 33, 4, 4, edmo_zone},
-    {26, 8,  3, 3, quetz_fern_zone},
-    {15, 12, 3,  3, tree_zone},
+    {35, 1, 5,  7, pter_meteor_zone},
+    {3, 9, 1,  2, ornith_pachy_zone},
+    {8, 9, 3,  3, trice_dako_zone},
+    {20, 12, 4, 3, anky_trex_zone},
+    {10, 13, 3, 3, edmo_zone},
+    {16, 20,  3, 3, quetz_fern_zone},
+    {2, 33, 7,  6, tree_zone},
     // {13, 27, 11, 4, tree_zone},
     // {2,  15, 6, 13, pter_zone},
-    {9, 36, 3, 2, dako_orni_zone},
-    {28,33, 4, 7, trex_zone},
-    {28,11, 7, 3, anky_edmo_zone},
-    {14,35,  9, 5, garden_zone},
-    {8,38,  6, 2, garden_zone},
-    {0,36,  8, 4, garden_zone},
-    {0,28,  6, 8, garden_zone},
-    {6,24,  4, 6, garden_zone},
-    {7,30,  2, 2, garden_zone},
-    {0,18,  6, 10, garden_zone},
-    {23,38,  4, 2, ant_hcenti_zone},
-    {0,25,  3, 3, hornet_bee_beehive_zone},
+    {16, 12, 2, 2, dako_orni_zone},
+    {5,7, 3, 4, trex_zone},
+    {9,20, 3, 3, anky_edmo_zone},
+    {29,8,  11, 7, garden_zone},
+    {27,15, 12, 10, garden_zone},
+    {27,25, 13, 6, garden_zone},
+    {27,31,  5, 2, garden_zone},
+    {24,33,  4, 1, garden_zone},
+    {19,17,  8, 16, garden_zone},
+    {14,15,  5, 4, garden_zone},
+    {37,9,  3, 2, ant_hcenti_zone},
+    {25,27, 2, 4, hornet_bee_beehive_zone},
 };
 
 static void set_spawn_zones()
