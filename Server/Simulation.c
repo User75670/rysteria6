@@ -369,7 +369,9 @@ static void despawn_mob(EntityIdx entity, void *_simulation)
         return;
     // if (rr_simulation_has_arena(this, entity))
     //     return;
-    if (rr_simulation_has_arena(this, entity) && mob->id != rr_mob_id_beehive)
+    if (rr_simulation_has_arena(this, entity)
+    // && mob->id != rr_mob_id_beehive
+    )
     return;
 
     struct rr_component_arena *arena = rr_simulation_get_arena(this, 1);
@@ -390,16 +392,16 @@ static void despawn_mob(EntityIdx entity, void *_simulation)
         {
             mob->no_drop = 1;
             rr_simulation_request_entity_deletion(this, entity);
-            if (mob->id == rr_mob_id_beehive) {
-            for (uint32_t i = 0; i < this->physical_count; ++i)
-{
-    EntityIdx e = this->physical_vector[i];
-    struct rr_component_physical *p = rr_simulation_get_physical(this, e);
+//             if (mob->id == rr_mob_id_beehive) {
+//             for (uint32_t i = 0; i < this->physical_count; ++i)
+// {
+//     EntityIdx e = this->physical_vector[i];
+//     struct rr_component_physical *p = rr_simulation_get_physical(this, e);
 
-    if (p->arena == entity)  // entity = Beehive’s ID
-        rr_simulation_request_entity_deletion(this, e);
-}
-}
+//     if (p->arena == entity)  // entity = Beehive’s ID
+//         rr_simulation_request_entity_deletion(this, e);
+// }
+// }
         }
     }
     else
