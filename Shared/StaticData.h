@@ -281,7 +281,7 @@ struct rr_maze_declaration
     float grid_size;
     struct rr_maze_grid *maze;
     uint8_t checkpoint_count;
-    struct rr_checkpoint checkpoints[3];
+    struct rr_checkpoint checkpoints[14];
 };
 
 #define RR_DECLARE_MAZE(name, size)                                            \
