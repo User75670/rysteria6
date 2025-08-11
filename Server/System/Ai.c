@@ -110,6 +110,7 @@ static void system_for_each(EntityIdx entity, void *simulation)
         break;
     case rr_mob_id_fern:
     case rr_mob_id_tree:
+    break;
     case rr_mob_id_edmontosaurus:
     default:
         tick_ai_default(entity, this, RR_PLAYER_SPEED);
