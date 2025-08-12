@@ -271,6 +271,7 @@ static void system_velocity(EntityIdx id, void *simulation)
          rr_simulation_get_petal(simulation, id)->id != rr_petal_id_pter_egg &&
          rr_simulation_get_petal(simulation, id)->id != rr_petal_id_pachy_egg &&
          rr_simulation_get_petal(simulation, id)->id != rr_petal_id_quetz_egg &&
+         rr_simulation_get_petal(simulation, id)->id != rr_petal_id_trice_egg &&
          rr_simulation_get_petal(simulation, id)->id != rr_petal_id_nest &&
          rr_simulation_get_petal(simulation, id)->id != rr_petal_id_meat) ||
         physical->bubbling_to_death ||
