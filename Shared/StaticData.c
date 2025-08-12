@@ -130,7 +130,7 @@ char const *RR_PETAL_DESCRIPTIONS[rr_petal_id_max] = {
     "Remember to feed your pets",
     "Oh this one spawns dakotaraptors.",
     "Who thought you could get pet pteranodons.",
-    "Spawns another type of pet dinosaur to protect you. Cool."
+    "Spawns another type of pet dinosaur to protect you. Cool.",
     "Interesting type of egg."
 };
 
@@ -414,8 +414,8 @@ static void print_chances(float difficulty)
     }
 }
 
-double RR_BASE_CRAFT_CHANCES[rr_rarity_id_max - 1] = {0.5,  0.3,  0.15, 0.05,
-                                                      0.03, 0.02, 0.015};
+double RR_BASE_CRAFT_CHANCES[rr_rarity_id_max - 1] = {0.65,  0.4,  0.3, 0.1,
+                                                      0.05, 0.03, 0.02};
 double RR_CRAFT_CHANCES[rr_rarity_id_max - 1];
 
 static double from_prd_base(double C)
@@ -714,7 +714,7 @@ struct rr_maze_declaration RR_MAZES[rr_biome_id_max] = {
 
         {34, 8, 1, 1, 34, 8, 20},  // 7
         {37, 14, 1, 1, 37,14,40},  // 8
-        {28, 20, 2, 2, 29,20,60},  // 9
+        {27, 18, 5, 3, 29,20,60},  // 9
         {34, 26, 2, 2, 34,26,80}, // 10
         {28, 31, 2, 2, 28,31,100}, // 11
         {24, 26, 1, 1, 24,26,120}, // 12
