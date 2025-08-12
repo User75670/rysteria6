@@ -93,6 +93,10 @@ uint8_t quetz_fern_zone()
 {
     return rr_frand() > 0.2 ? rr_mob_id_quetzalcoatlus : rr_mob_id_fern;
 }
+uint8_t quetz_trice_zone()
+{
+    return rr_frand() > 0.3 ? rr_mob_id_quetzalcoatlus : rr_mob_id_triceratops;
+}
 uint8_t anky_trex_zone()
 {
     return rr_frand() > 0.2 ? rr_mob_id_ankylosaurus : rr_mob_id_trex;
@@ -111,6 +115,12 @@ uint8_t anky_edmo_zone() {
 uint8_t ant_hcenti_zone() {
     return rr_frand() > 0.3 ? rr_mob_id_ant : rr_mob_id_house_centipede;
 }
+uint8_t lanternfly_spider_zone() {
+    return rr_frand() > 0.3 ? rr_mob_id_lanternfly : rr_mob_id_spider;
+}
+uint8_t hornet_dragonfly_zone() {
+    return rr_frand() > 0.4 ? rr_mob_id_hornet : rr_mob_id_dragonfly;
+}
 uint8_t hornet_bee_beehive_zone() {
     float seed = rr_frand();
     float something = 0;
@@ -118,10 +128,10 @@ uint8_t hornet_bee_beehive_zone() {
     something += 0.6;
     if (seed < something)
         return rr_mob_id_hornet;
-    something += 0.34;
+    something += 0.38;
     if (seed < something)
         return rr_mob_id_honeybee;
-    something += 0.05;
+    something += 0.01; // 20x higher chance for beehive
     if (seed < something)
         return rr_mob_id_beehive;
     return rr_mob_id_beehive;
@@ -142,7 +152,7 @@ uint8_t garden_zone() {
     something += 0.15;
     if (seed < something)
         return rr_mob_id_ant;
-    something += 0.01;
+    something += 0.001;
     if (seed < something)
         return rr_mob_id_beehive;
     something += 0.15;
@@ -174,7 +184,7 @@ struct zone
     uint8_t (*spawn_func)();
 };
 
-#define ZONE_POSITION_COUNT 20
+#define ZONE_POSITION_COUNT 23
 
 static struct zone zone_positions[ZONE_POSITION_COUNT] = {
     // {7, 33,  2,2, meteor_zone},
@@ -187,6 +197,7 @@ static struct zone zone_positions[ZONE_POSITION_COUNT] = {
     {20, 12, 4, 3, anky_trex_zone},
     {9, 13, 4, 3, edmo_zone},
     {16, 20,  3, 3, quetz_fern_zone},
+    {15, 4,  6, 3, quetz_trice_zone},
     {2, 33, 7,  6, tree_zone},
     // {13, 27, 11, 4, tree_zone},
     // {2,  15, 6, 13, pter_zone},
@@ -201,6 +212,8 @@ static struct zone zone_positions[ZONE_POSITION_COUNT] = {
     {19,17,  8, 16, garden_zone},
     {14,15,  5, 4, garden_zone},
     {37,9,  3, 2, ant_hcenti_zone},
+    {30,19,  4, 2,lanternfly_spider_zone},
+    {36,17,  3, 4,hornet_dragonfly_zone},
     {25,27, 2, 4, hornet_bee_beehive_zone},
 };
 
