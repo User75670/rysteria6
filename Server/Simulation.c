@@ -143,7 +143,7 @@ uint8_t garden_zone() {
     something += 0.03;
     if (seed < something)
         return rr_mob_id_fern;
-    something += 0.005;
+    something += 0.001;
     if (seed < something)
         return rr_mob_id_tree;
     something += 0.0001;
