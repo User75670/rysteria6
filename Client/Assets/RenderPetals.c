@@ -51,6 +51,15 @@ void rr_renderer_draw_petal(struct rr_renderer *renderer, uint8_t id,
             rr_renderer_fill(renderer);
             rr_renderer_stroke(renderer);
             break;
+        case rr_petal_id_obliterator:
+            rr_renderer_set_stroke(renderer, 0xff00cccc);
+            rr_renderer_set_fill(renderer, 0xff00ffff);
+            rr_renderer_set_line_width(renderer, 3.0f);
+            rr_renderer_begin_path(renderer);
+            rr_renderer_arc(renderer, 0.0f, 0.0f, 10.0f);
+            rr_renderer_fill(renderer);
+            rr_renderer_stroke(renderer);
+            break;
         case rr_petal_id_pellet:
             rr_renderer_set_stroke(renderer, 0xffcfcfcf);
             rr_renderer_set_fill(renderer, 0xffffffff);
