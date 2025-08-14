@@ -113,16 +113,31 @@ void tick_ai_dakotaraptor(EntityIdx entity, struct rr_simulation *simulation,
             if (rr_simulation_get_mob(simulation, entity)->rarity >=
                 rr_rarity_id_exotic)
                 ai->ai_state = rr_ai_state_exotic_special;
-            ai->ticks_until_next_action = 100;
+            ai->ticks_until_next_action = 50;
         }
         break;
     }
     case rr_ai_state_exotic_special:
     {
+        struct rr_vector accel;
+        struct rr_component_physical *physical2 =
+            rr_simulation_get_physical(simulation, ai->target_entity);
+
+        struct rr_vector delta = {physical2->x, physical2->y};
+        struct rr_vector target_pos = {physical->x, physical->y};
+        rr_vector_sub(&delta, &target_pos);
+        // struct rr_vector prediction = predict(delta, physical2->velocity, 4);
+        float target_angle = rr_vector_theta(&delta);
+
+        rr_component_physical_set_angle(
+            physical, rr_angle_lerp(physical->angle, target_angle, 0.4));
+
+        rr_vector_from_polar(&accel, speed * 2, physical->angle);
+        rr_vector_add(&physical->acceleration, &accel);
         if (ai->ticks_until_next_action == 0)
         {
             ai->ai_state = rr_ai_state_attacking;
-            ai->ticks_until_next_action = 500;
+            ai->ticks_until_next_action = 200;
         }
         break;
     }

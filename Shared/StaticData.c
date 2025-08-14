@@ -231,7 +231,7 @@ struct rr_mob_rarity_scale RR_MOB_RARITY_SCALING[rr_rarity_id_max] = {
     {192,    14.5, 4  },
     {2560,   24.6, 5.5},
     {128000, 42,   7  },
-    {2342000, 76,   10},
+    {2342000,212,   10},
 };
 // clang-format on
 
