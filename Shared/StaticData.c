@@ -699,7 +699,11 @@ RR_DEFINE_MAZE(HELL_CREEK, 80) = {
 */
 };
 // clang-format on
-RR_DEFINE_MAZE(BURROW, 4) = {{1, 1}, {0, 1}};
+RR_DEFINE_MAZE(BURROW, 6) = {
+{1, 1, 0},
+{0, 1, 1},
+{1, 1, 0}
+};
 
 #define MAZE_ENTRY(MAZE, GRID_SIZE)                                            \
     (sizeof(RR_MAZE_##MAZE[0]) / sizeof(struct rr_maze_grid)), GRID_SIZE,      \
