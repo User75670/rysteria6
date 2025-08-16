@@ -109,6 +109,7 @@ static void system_for_each(EntityIdx entity, void *simulation)
         tick_ai_quetzalcoaltus(entity, this);
         break;
     case rr_mob_id_fern:
+    break;
     case rr_mob_id_tree:
     break;
     case rr_mob_id_edmontosaurus:

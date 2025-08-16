@@ -736,6 +736,9 @@ system_egg_hatching_logic(struct rr_simulation *simulation,
     } else if (petal->id == rr_petal_id_edmo_egg) {
         m_id = rr_mob_id_edmontosaurus;
         m_rar = petal->rarity >= 1 ? petal->rarity - 1 : 0;
+    } else if (petal->id == rr_petal_id_fern_egg) {
+        m_id = rr_mob_id_fern;
+        m_rar = petal->rarity >= 1 ? petal->rarity - 0 : 0;
     }
     else if (petal->id == rr_petal_id_meteor)
     {
@@ -755,10 +758,12 @@ system_egg_hatching_logic(struct rr_simulation *simulation,
     rr_component_relations_set_team(mob_relations, relations->team);
     rr_component_relations_set_owner(mob_relations, player_info->flower_id);
     rr_component_relations_update_root_owner(simulation, mob_relations);
-    if (m_id == rr_mob_id_trex || m_id == rr_mob_id_dakotaraptor || m_id == rr_mob_id_pteranodon || m_id == rr_mob_id_pachycephalosaurus || m_id == rr_mob_id_quetzalcoatlus || m_id == rr_mob_id_triceratops || m_id == rr_mob_id_edmontosaurus)
+    if (m_id == rr_mob_id_trex || m_id == rr_mob_id_dakotaraptor || m_id == rr_mob_id_pteranodon || m_id == rr_mob_id_pachycephalosaurus || m_id == rr_mob_id_quetzalcoatlus || m_id == rr_mob_id_triceratops || m_id == rr_mob_id_edmontosaurus || m_id == rr_mob_id_fern)
     {
         mob_relations->nest = relations->nest;
+        if (m_id != rr_mob_id_fern) {
         rr_simulation_get_ai(simulation, mob_id)->ai_type = rr_ai_type_aggro;
+        }
     }
     rr_component_mob_set_player_spawned(
         rr_simulation_get_mob(simulation, mob_id), 1);
@@ -945,7 +950,14 @@ static void rr_system_petal_reload_foreach_function(EntityIdx id,
                                                           p_petal->entity_hash);
                     continue;
                 }
-                if (data->id == rr_petal_id_egg || data->id == rr_petal_id_dako_egg || data->id == rr_petal_id_pter_egg || data->id == rr_petal_id_pachy_egg || data->id == rr_petal_id_quetz_egg || data->id == rr_petal_id_trice_egg || data->id == rr_petal_id_edmo_egg)
+                if (data->id == rr_petal_id_egg || 
+                    data->id == rr_petal_id_dako_egg || 
+                    data->id == rr_petal_id_pter_egg || 
+                    data->id == rr_petal_id_pachy_egg || 
+                    data->id == rr_petal_id_quetz_egg || 
+                    data->id == rr_petal_id_trice_egg || 
+                    data->id == rr_petal_id_edmo_egg || 
+                    data->id == rr_petal_id_fern_egg)
                 {
                     system_nest_egg_choosing_logic(simulation, player_info,
                                                    p_petal->entity_hash);

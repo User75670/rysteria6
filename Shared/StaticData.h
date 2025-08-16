@@ -145,6 +145,7 @@ enum rr_petal_id
     rr_petal_id_quetz_egg,       // 36
     rr_petal_id_trice_egg,   // 37
     rr_petal_id_edmo_egg,   // 38
+    rr_petal_id_fern_egg,   // 38
 
     rr_petal_id_obliterator,    // 39
 
