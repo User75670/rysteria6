@@ -145,12 +145,14 @@ enum rr_petal_id
     rr_petal_id_quetz_egg,       // 36
     rr_petal_id_trice_egg,   // 37
     rr_petal_id_edmo_egg,   // 38
-    rr_petal_id_fern_egg,   // 38
-    rr_petal_id_anky_egg,   // 3
+    rr_petal_id_fern_egg,   // 39
+    rr_petal_id_anky_egg,   // 40
+    rr_petal_id_orni_egg,   // 41
+    rr_petal_id_tree_egg,   // 42
 
-    rr_petal_id_obliterator,    // 39
+    rr_petal_id_obliterator,    // 43
 
-    rr_petal_id_max,   // 40
+    rr_petal_id_max,   // 44
 
 };
 

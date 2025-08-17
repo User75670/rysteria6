@@ -26,7 +26,7 @@
 // head, body, legs, tail, IN THAT ORDER
 
 struct rr_renderer_spritesheet mob_sprites[rr_mob_id_max];
-struct rr_renderer_spritesheet friendly_mob_sprites[10];
+struct rr_renderer_spritesheet friendly_mob_sprites[12];
 void render_sprite(struct rr_renderer *renderer, uint8_t id, uint32_t pos,
                    uint8_t flags)
 {
@@ -63,6 +63,12 @@ void render_sprite(struct rr_renderer *renderer, uint8_t id, uint32_t pos,
                                          pos);
             else if (id == rr_mob_id_ankylosaurus)
                 render_sprite_from_cache(renderer, &friendly_mob_sprites[9],
+                                         pos);
+            else if (id == rr_mob_id_ornithomimus)
+                render_sprite_from_cache(renderer, &friendly_mob_sprites[10],
+                                         pos);
+            else if (id == rr_mob_id_tree)
+                render_sprite_from_cache(renderer, &friendly_mob_sprites[11],
                                          pos);
             else
                 render_sprite_from_cache(renderer, &mob_sprites[id], pos);
@@ -511,7 +517,13 @@ void rr_renderer_mob_cache_init()
     rr_renderer_spritesheet_init(
         &friendly_mob_sprites[9], friendly_mask, 144, 144, rr_ankylosaurus_head_draw, 336, 192,
         rr_ankylosaurus_body_draw, 336, 192, rr_ankylosaurus_tail_draw, 0);
-
+    rr_renderer_spritesheet_init(
+        &friendly_mob_sprites[10], friendly_mask, 240, 144, rr_ornithomimus_head_draw, 336, 192,
+        rr_ornithomimus_body_draw, 240, 144, rr_ornithomimus_wing1_draw, 240,
+        144, rr_ornithomimus_wing2_draw, 336, 192, rr_ornithomimus_tail_draw,
+        0);
+    rr_renderer_spritesheet_init(&friendly_mob_sprites[11], friendly_mask, 384, 384, rr_tree_draw,
+                                 0);
     rr_renderer_spritesheet_init(&mob_sprites[2], NULL, 672, 672, rr_fern_draw,
                                  0);
 
@@ -544,6 +556,7 @@ void rr_renderer_mob_cache_init()
     rr_renderer_spritesheet_init(
         &mob_sprites[8], NULL, 144, 144, rr_ankylosaurus_head_draw, 336, 192,
         rr_ankylosaurus_body_draw, 336, 192, rr_ankylosaurus_tail_draw, 0);
+        
 
     rr_renderer_spritesheet_init(&mob_sprites[9], NULL, 240, 144,
                                  rr_meteor_draw, 0);

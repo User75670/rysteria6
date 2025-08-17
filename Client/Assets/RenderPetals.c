@@ -522,6 +522,24 @@ void rr_renderer_draw_petal(struct rr_renderer *renderer, uint8_t id,
             rr_renderer_fill(renderer);
             rr_renderer_stroke(renderer);
             break;
+        case rr_petal_id_orni_egg:
+            rr_renderer_set_stroke(renderer,0xff989898);
+            rr_renderer_set_fill(renderer,0xffb8b8b8);
+            rr_renderer_set_line_width(renderer, 3);
+            rr_renderer_begin_path(renderer);
+            rr_renderer_arc(renderer, 0, 0, 12);
+            rr_renderer_fill(renderer);
+            rr_renderer_stroke(renderer);
+            break;
+        case rr_petal_id_tree_egg:
+            rr_renderer_set_stroke(renderer,0xff001d00);
+            rr_renderer_set_fill(renderer,0xff1a3d0a);
+            rr_renderer_set_line_width(renderer, 3);
+            rr_renderer_begin_path(renderer);
+            rr_renderer_arc(renderer, 0, 0, 12);
+            rr_renderer_fill(renderer);
+            rr_renderer_stroke(renderer);
+            break;
         case rr_petal_id_magnet:
             rr_renderer_scale(renderer, 0.5);
             rr_renderer_translate(renderer, -20.00, 0.00);

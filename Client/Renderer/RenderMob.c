@@ -50,7 +50,9 @@ void rr_component_mob_render(EntityIdx entity, struct rr_game *game,
          mob->id == rr_mob_id_triceratops ||
          mob->id == rr_mob_id_edmontosaurus ||
          mob->id == rr_mob_id_fern ||
-         mob->id == rr_mob_id_ankylosaurus
+         mob->id == rr_mob_id_ankylosaurus ||
+         mob->id == rr_mob_id_ornithomimus ||
+         mob->id == rr_mob_id_tree
         ) &&
         is_friendly)
         rr_renderer_add_color_filter(renderer, 0xffffff63, 0.3);
