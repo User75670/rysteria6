@@ -253,7 +253,7 @@ void rr_server_client_broadcast_update(struct rr_server_client *this)
         proto_bug_write_varuint(&encoder, member->level, "level");
         proto_bug_write_string(&encoder, member->nickname, 16, "nickname");
         proto_bug_write_string(&encoder, member->client->rivet_account.uuid, 37, "uuid");
-        proto_bug_write_string(&encoder, member->client->rivet_account.name, 20, "discord");
+        proto_bug_write_string(&encoder, member->client->rivet_account.id, 20, "discord");
         for (uint8_t j = 0; j < RR_MAX_SLOT_COUNT * 2; ++j)
         {
             proto_bug_write_uint8(&encoder, member->loadout[j].id, "id");
@@ -1647,7 +1647,7 @@ static void server_tick(struct rr_server *this)
                                            "nickname");
                     proto_bug_write_string(&encoder, member->client->rivet_account.uuid, 37,
                                            "uuid");
-                    proto_bug_write_string(&encoder, member->client->rivet_account.name, 20,
+                    proto_bug_write_string(&encoder, member->client->rivet_account.id, 20,
                                            "discord");
                     for (uint8_t j = 0; j < RR_MAX_SLOT_COUNT * 2; ++j)
                     {

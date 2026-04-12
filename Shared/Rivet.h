@@ -28,6 +28,7 @@ struct rr_rivet_account
     char code[500];
     char uuid[500];
     char name[500];
+    char id[500];
 };
 
 // user must define this function.
