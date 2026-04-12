@@ -269,8 +269,8 @@ void rr_server_client_broadcast_update(struct rr_server_client *this)
     char joined_code[16];
     sprintf(joined_code, "%s-%s", server->server_alias, squad->squad_code);
     proto_bug_write_string(&encoder, joined_code, 16, "squad code");
-    proto_bug_write_uint8(&encoder, this->afk, "afk");
-    if (this->afk)
+    proto_bug_write_varuint(&encoder, this->afk_ticks, "afk_ticks");
+    if (this->afk_ticks > RR_AFK_WARNING)
         proto_bug_write_string(&encoder, this->afk_challenge, 7,
                                "afk_challenge");
     proto_bug_write_uint8(&encoder, this->player_info != NULL, "in game");
@@ -1046,7 +1046,8 @@ static int handle_lws_event(struct rr_server *this, struct lws *ws,
                 --this->simulation.animation_length;
                 break;
             }
-            if (client->afk && strlen(animation->message) == 6)
+            if (client->afk_ticks > RR_AFK_WARNING &&
+                strlen(animation->message) == 6)
             {
                 char temp[7];
                 for (uint8_t i = 0; i < 6; ++i)
@@ -1056,7 +1057,7 @@ static int handle_lws_event(struct rr_server *this, struct lws *ws,
                 {
                     printf("[afk] %s passed in %.2fs\n",
                            client->rivet_account.uuid,
-                           (client->afk_ticks - 27 * 60 * 25) / 25.0f);
+                           (client->afk_ticks - RR_AFK_WARNING) / 25.0f);
                     client->afk_ticks = 0;
                     --this->simulation.animation_length;
                     break;
@@ -1366,7 +1367,6 @@ static int api_lws_callback(struct lws *ws, enum lws_callback_reasons reason,
                     this->clients[j].ticks_to_next_squad_action;
                 client->ticks_to_next_kick_vote =
                     this->clients[j].ticks_to_next_kick_vote;
-                client->afk = this->clients[j].afk;
                 client->afk_ticks = this->clients[j].afk_ticks;
                 strcpy(client->afk_challenge, this->clients[j].afk_challenge);
                 memcpy(client->joined_squad_before,
@@ -1535,7 +1535,7 @@ static void server_tick(struct rr_server *this)
             if (!client->dev && client->player_info != NULL &&
                 level_from_xp(client->experience) >= 3)
             {
-                if (++client->afk_ticks > 30 * 60 * 25)
+                if (++client->afk_ticks > RR_AFK_TIMEOUT)
                 {
                     printf("[afk] %s kicked\n", client->rivet_account.uuid);
                     rr_simulation_request_entity_deletion(
@@ -1557,12 +1557,11 @@ static void server_tick(struct rr_server *this)
             }
             else
                 client->afk_ticks = 0;
-            if (!client->afk && client->afk_ticks > 27 * 60 * 25) {
+            if (client->afk_ticks == RR_AFK_WARNING) {
                 for (uint32_t i = 0; i < 6; ++i)
                     client->afk_challenge[i] = (char)(97 + rand() % 26);
                 client->afk_challenge[6] = 0;
             }
-            client->afk = client->afk_ticks > 27 * 60 * 25;
             if (client->pending_kick)
                 lws_callback_on_writable(client->socket_handle);
             if (!client->verified)

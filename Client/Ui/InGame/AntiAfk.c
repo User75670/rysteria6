@@ -24,7 +24,8 @@
 static uint8_t anti_afk_container_should_show(struct rr_ui_element *this,
                                               struct rr_game *game)
 {
-    return game->simulation_ready && game->afk && !game->cache.hide_ui;
+    return game->simulation_ready && game->afk_ticks > RR_AFK_WARNING &&
+           !game->cache.hide_ui;
 }
 
 static void anti_afk_container_animate(struct rr_ui_element *this,
@@ -62,6 +63,13 @@ static void get_challenge_text(struct rr_ui_element *this, struct rr_game *game)
         data->text[rand() % 6] = (char)(97 + rand() % 26);
 }
 
+static void get_timeout_text(struct rr_ui_element *this, struct rr_game *game)
+{
+    struct rr_ui_dynamic_text_metadata *data = this->data;
+    uint16_t time = (RR_AFK_TIMEOUT - game->afk_ticks) / 25;
+    sprintf(data->text, "%u:%02u", time / 60, time % 60);
+}
+
 static uint8_t choose_const(struct rr_ui_element *this, struct rr_game *game) {
     return 0;
 }
@@ -88,8 +96,12 @@ struct rr_ui_element *rr_ui_anti_afk_container_init(struct rr_game *game)
                     // ),
                     NULL),
             -1, -1),
-            rr_ui_set_justify(rr_ui_text_init(
-                "Otherwise, you will be kicked soon", 16, 0xffffffff),
+            rr_ui_set_justify(
+                rr_ui_h_container_init(rr_ui_container_init(), 0, 0,
+                    rr_ui_text_init("Otherwise, you will be kicked in ",
+                                    16, 0xffffffff),
+                    rr_ui_dynamic_text_init(16, 0xffffffff, get_timeout_text),
+                    NULL),
             -1, -1),
             NULL), 0x40ffffff);
     struct rr_vector *vector = malloc(sizeof *vector);

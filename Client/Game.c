@@ -977,8 +977,8 @@ void rr_game_websocket_on_event_function(enum rr_websocket_event_type type,
                                   "squad code");
             // this->is_dev =
             //     this->squad.squad_members[this->squad.squad_pos].is_dev;
-            this->afk = proto_bug_read_uint8(&encoder, "afk");
-            if (this->afk)
+            this->afk_ticks = proto_bug_read_varuint(&encoder, "afk_ticks");
+            if (this->afk_ticks > RR_AFK_WARNING)
                 proto_bug_read_string(&encoder, this->afk_challenge, 7,
                                       "afk_challenge");
             if (proto_bug_read_uint8(&encoder, "in game") == 1)
