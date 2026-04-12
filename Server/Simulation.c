@@ -86,7 +86,8 @@ uint8_t trex_anky_zone()
 }
 uint8_t edmo_zone() { return rr_mob_id_edmontosaurus; }
 // ~x6 tree chance
-uint8_t tree_zone() {
+uint8_t tree_zone()
+{
     return rr_frand() > 0.00325 ? DIFFICULT_MOBS : rr_mob_id_tree;
 }
 uint8_t pter_zone()
@@ -132,13 +133,11 @@ struct zone
 static struct zone zone_positions[ZONE_POSITION_COUNT] = {
     {29, 26, 3,  2, fern_tree_zone},
     {13, 19, 3,  2, pter_meteor_zone},
-    // {17, 8,  3,  2, ornith_pachy_zone},
     {3,  32, 5,  5, trice_dako_zone},
     {7,  1,  4,  4, trex_anky_zone},
     {8,  21, 4,  3, edmo_zone},
     {19, 33, 5,  2, tree_zone},
     {16, 35, 11, 4, tree_zone},
-    // {2,  13, 6, 17, pter_zone},
     {7,  24, 4,  3, trex_zone},
     {33, 3,  5,  5, quetz_zone},
     {4,  9,  4,  4, fern_pachy_zone},
