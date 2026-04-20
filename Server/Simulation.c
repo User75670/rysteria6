@@ -96,7 +96,7 @@ uint8_t pter_zone()
 }
 uint8_t trex_zone()
 {
-    return rr_frand() > 0.2 ? rr_mob_id_trex : ALL_MOBS;
+    return rr_mob_id_trex;
 }
 uint8_t quetz_zone()
 {
@@ -118,7 +118,18 @@ uint8_t pter_edmo_zone()
                             : rr_frand() > 0.5 ? rr_mob_id_edmontosaurus
                                                : rr_mob_id_pteranodon;
 }
-
+uint8_t pachy_orni_zone()
+{
+    return rr_frand() > 0.4 ? rr_mob_id_pachycephalosaurus : rr_mob_id_ornithomimus;
+}
+uint8_t dako_orni_zone()
+{
+    return rr_frand() > 0.4 ? rr_mob_id_dakotaraptor : rr_mob_id_ornithomimus;
+}
+uint8_t quetz_trice_zone()
+{
+    return rr_frand() > 0.3 ? rr_mob_id_quetzalcoatlus : rr_mob_id_triceratops;
+}
 struct zone
 {
     uint32_t x;
@@ -128,12 +139,12 @@ struct zone
     uint8_t (*spawn_func)();
 };
 
-#define ZONE_POSITION_COUNT 14
+#define ZONE_POSITION_COUNT 17
 
 static struct zone zone_positions[ZONE_POSITION_COUNT] = {
     {29, 26, 3,  2, fern_tree_zone},
-    {13, 19, 3,  2, pter_meteor_zone},
-    {3,  32, 5,  5, trice_dako_zone},
+    {22, 22, 5,  3, pter_meteor_zone},
+    {3,  32, 6,  5, trice_dako_zone},
     {7,  1,  4,  4, trex_anky_zone},
     {8,  21, 4,  3, edmo_zone},
     {19, 33, 5,  2, tree_zone},
@@ -145,6 +156,9 @@ static struct zone zone_positions[ZONE_POSITION_COUNT] = {
     {32, 7,  2,  2, anky_zone},
     {32, 9,  5,  2, anky_zone},
     {26, 6,  3,  4, pter_edmo_zone},
+    {10, 34, 3,  2, pachy_orni_zone},
+    {34, 21, 5,  1, dako_orni_zone},
+    {13, 19, 3,  4, quetz_trice_zone},
 };
 
 static void set_spawn_zones()

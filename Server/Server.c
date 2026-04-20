@@ -1165,7 +1165,7 @@ if (
                             pos.x, pos.y, id, rarity, rr_simulation_team_id_mobs);
                         struct rr_component_mob *mob =
                             rr_simulation_get_mob(&this->simulation, e);
-                        mob->no_drop = no_drop;
+                        // mob->no_drop = no_drop;
                         break;
                     }
                 break;
