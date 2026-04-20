@@ -282,6 +282,7 @@ static void system_velocity(EntityIdx id, void *simulation)
         (rr_simulation_has_petal(simulation, id) &&
          rr_simulation_get_petal(simulation, id)->id != rr_petal_id_egg &&
          rr_simulation_get_petal(simulation, id)->id != rr_petal_id_dako_egg &&
+         rr_simulation_get_petal(simulation, id)->id != rr_petal_id_pter_egg &&
          rr_simulation_get_petal(simulation, id)->id != rr_petal_id_nest &&
          rr_simulation_get_petal(simulation, id)->id != rr_petal_id_meat &&
          rr_simulation_get_petal(simulation, id)->id != rr_petal_id_peas) ||
