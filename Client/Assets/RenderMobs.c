@@ -26,7 +26,7 @@
 // head, body, legs, tail, IN THAT ORDER
 
 struct rr_renderer_spritesheet mob_sprites[rr_mob_id_max];
-struct rr_renderer_spritesheet friendly_mob_sprites[8];
+struct rr_renderer_spritesheet friendly_mob_sprites[12];
 void render_sprite(struct rr_renderer *renderer, uint8_t id, uint32_t pos,
                    uint8_t flags)
 {
@@ -55,7 +55,18 @@ void render_sprite(struct rr_renderer *renderer, uint8_t id, uint32_t pos,
             else if (id == rr_mob_id_triceratops)
                 render_sprite_from_cache(renderer, &friendly_mob_sprites[7],
                                          pos);
-
+            else if (id == rr_mob_id_quetzalcoatlus)
+                render_sprite_from_cache(renderer, &friendly_mob_sprites[8],
+                                         pos);
+            else if (id == rr_mob_id_edmontosaurus)
+                render_sprite_from_cache(renderer, &friendly_mob_sprites[9],
+                                         pos);
+            else if (id == rr_mob_id_pachycephalosaurus)
+                render_sprite_from_cache(renderer, &friendly_mob_sprites[10],
+                                         pos);
+            else if (id == rr_mob_id_ornithomimus)
+                render_sprite_from_cache(renderer, &friendly_mob_sprites[11],
+                                         pos);
             else if (id == rr_mob_id_meteor)
                 render_sprite_from_cache(renderer, &friendly_mob_sprites[1],
                                          pos);
@@ -426,6 +437,26 @@ void rr_renderer_mob_cache_init()
         &friendly_mob_sprites[7], friendly_mask, 336, 192, rr_triceratops_head_draw, 336, 192,
         rr_triceratops_body_draw, 240, 240, rr_triceratops_leg1_draw, 240, 240,
         rr_triceratops_leg2_draw, 336, 192, rr_triceratops_tail_draw, 0);
+    rr_renderer_spritesheet_init(
+        &friendly_mob_sprites[8], friendly_mask, 336, 192, rr_quetzalcoatlus_head_draw, 336, 192,
+        rr_quetzalcoatlus_body_draw, 336, 192, rr_quetzalcoatlus_wing1_draw,
+        336, 192, rr_quetzalcoatlus_wing2_draw, 0);
+    rr_renderer_spritesheet_init(
+        &friendly_mob_sprites[9], friendly_mask, 240, 144, rr_edmontosaurus_head_draw, 339, 192,
+        rr_edmontosaurus_body_draw, 240, 240, rr_edmontosaurus_leg1_draw, 240,
+        240, rr_edmontosaurus_leg2_draw, 336, 192, rr_edmontosaurus_tail_draw,
+        0);
+    rr_renderer_spritesheet_init(&friendly_mob_sprites[10], friendly_mask, 240, 144,
+                                 rr_pachycephalosaurus_head_draw, 336, 192,
+                                 rr_pachycephalosaurus_body_draw, 240, 240,
+                                 rr_pachycephalosaurus_leg1_draw, 240, 240,
+                                 rr_pachycephalosaurus_leg2_draw, 336, 192,
+                                 rr_pachycephalosaurus_tail_draw, 0);
+    rr_renderer_spritesheet_init(
+        &friendly_mob_sprites[11], friendly_mask, 240, 144, rr_ornithomimus_head_draw, 336, 192,
+        rr_ornithomimus_body_draw, 240, 144, rr_ornithomimus_wing1_draw, 240,
+        144, rr_ornithomimus_wing2_draw, 336, 192, rr_ornithomimus_tail_draw,
+        0);
     rr_renderer_spritesheet_init(&mob_sprites[2], NULL, 672, 672, rr_fern_draw,
                                  0);
 
