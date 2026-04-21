@@ -26,7 +26,7 @@
 // head, body, legs, tail, IN THAT ORDER
 
 struct rr_renderer_spritesheet mob_sprites[rr_mob_id_max];
-struct rr_renderer_spritesheet friendly_mob_sprites[4];
+struct rr_renderer_spritesheet friendly_mob_sprites[8];
 void render_sprite(struct rr_renderer *renderer, uint8_t id, uint32_t pos,
                    uint8_t flags)
 {
@@ -43,6 +43,19 @@ void render_sprite(struct rr_renderer *renderer, uint8_t id, uint32_t pos,
             else if (id == rr_mob_id_pteranodon)
                 render_sprite_from_cache(renderer, &friendly_mob_sprites[3],
                                          pos);
+            else if (id == rr_mob_id_fern)
+                render_sprite_from_cache(renderer, &friendly_mob_sprites[4],
+                                         pos);
+            else if (id == rr_mob_id_tree)
+                render_sprite_from_cache(renderer, &friendly_mob_sprites[5],
+                                         pos);
+            else if (id == rr_mob_id_ankylosaurus)
+                render_sprite_from_cache(renderer, &friendly_mob_sprites[6],
+                                         pos);
+            else if (id == rr_mob_id_triceratops)
+                render_sprite_from_cache(renderer, &friendly_mob_sprites[7],
+                                         pos);
+
             else if (id == rr_mob_id_meteor)
                 render_sprite_from_cache(renderer, &friendly_mob_sprites[1],
                                          pos);
@@ -402,7 +415,17 @@ void rr_renderer_mob_cache_init()
     rr_renderer_spritesheet_init(
         &friendly_mob_sprites[3], friendly_mask, 336, 192, rr_pteranodon_body_draw, 288, 432,
         rr_pteranodon_wing1_draw, 288, 432, rr_pteranodon_wing2_draw, 0);
-
+    rr_renderer_spritesheet_init(&friendly_mob_sprites[4], friendly_mask, 672, 672, rr_fern_draw,
+                                 0);
+    rr_renderer_spritesheet_init(&friendly_mob_sprites[5], friendly_mask, 384, 384, rr_tree_draw,
+                                 0);
+    rr_renderer_spritesheet_init(
+        &friendly_mob_sprites[6], friendly_mask, 144, 144, rr_ankylosaurus_head_draw, 336, 192,
+        rr_ankylosaurus_body_draw, 336, 192, rr_ankylosaurus_tail_draw, 0);
+    rr_renderer_spritesheet_init(
+        &friendly_mob_sprites[7], friendly_mask, 336, 192, rr_triceratops_head_draw, 336, 192,
+        rr_triceratops_body_draw, 240, 240, rr_triceratops_leg1_draw, 240, 240,
+        rr_triceratops_leg2_draw, 336, 192, rr_triceratops_tail_draw, 0);
     rr_renderer_spritesheet_init(&mob_sprites[2], NULL, 672, 672, rr_fern_draw,
                                  0);
 

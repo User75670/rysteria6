@@ -442,7 +442,7 @@ void rr_renderer_draw_petal(struct rr_renderer *renderer, uint8_t id,
             rr_renderer_stroke(renderer);
             break;
         case rr_petal_id_dako_egg:
-            rr_renderer_set_stroke(renderer, 0xff526069);
+            rr_renderer_set_stroke(renderer, 0xff65727c);
             rr_renderer_set_fill(renderer,   0xff85929c);
             rr_renderer_set_line_width(renderer, 3);
             rr_renderer_begin_path(renderer);
@@ -451,8 +451,44 @@ void rr_renderer_draw_petal(struct rr_renderer *renderer, uint8_t id,
             rr_renderer_stroke(renderer);
             break;
         case rr_petal_id_pter_egg:
-            rr_renderer_set_stroke(renderer, 0xff7a6035);
+            rr_renderer_set_stroke(renderer, 0xff8d7148);
             rr_renderer_set_fill(renderer,   0xffad9168);
+            rr_renderer_set_line_width(renderer, 3);
+            rr_renderer_begin_path(renderer);
+            rr_renderer_arc(renderer, 0, 0, 12);
+            rr_renderer_fill(renderer);
+            rr_renderer_stroke(renderer);
+            break;
+        case rr_petal_id_fern_egg:
+            rr_renderer_set_stroke(renderer, 0xff0c4202);
+            rr_renderer_set_fill(renderer,   0xff2c6212);
+            rr_renderer_set_line_width(renderer, 3);
+            rr_renderer_begin_path(renderer);
+            rr_renderer_arc(renderer, 0, 0, 12);
+            rr_renderer_fill(renderer);
+            rr_renderer_stroke(renderer);
+            break;
+        case rr_petal_id_tree_egg:
+            rr_renderer_set_stroke(renderer, 0xff0a1d0a);
+            rr_renderer_set_fill(renderer,   0xff1a3d0a);
+            rr_renderer_set_line_width(renderer, 3);
+            rr_renderer_begin_path(renderer);
+            rr_renderer_arc(renderer, 0, 0, 12);
+            rr_renderer_fill(renderer);
+            rr_renderer_stroke(renderer);
+            break;
+        case rr_petal_id_anky_egg:
+            rr_renderer_set_stroke(renderer, 0xff4a3025);
+            rr_renderer_set_fill(renderer,   0xff6a5045);
+            rr_renderer_set_line_width(renderer, 3);
+            rr_renderer_begin_path(renderer);
+            rr_renderer_arc(renderer, 0, 0, 12);
+            rr_renderer_fill(renderer);
+            rr_renderer_stroke(renderer);
+            break;
+        case rr_petal_id_trice_egg:
+            rr_renderer_set_stroke(renderer, 0xff847b6a);
+            rr_renderer_set_fill(renderer,   0xffa49b8a);
             rr_renderer_set_line_width(renderer, 3);
             rr_renderer_begin_path(renderer);
             rr_renderer_arc(renderer, 0, 0, 12);
