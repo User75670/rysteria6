@@ -10,15 +10,18 @@
     "portsAttributes": {
         "8080": {
             "label": "HTTP Server",
-            "onAutoForward": "openBrowser"
+            "onAutoForward": "openBrowser",
+            "visibility": "public"
         },
         "55554": {
             "label": "Master Server",
-            "onAutoForward": "silent"
+            "onAutoForward": "silent",
+            "visibility": "public"
         },
         "1234": {
             "label": "Game Server",
-            "onAutoForward": "openBrowserOnce"
+            "onAutoForward": "openBrowserOnce",
+            "visibility": "public"
         }
     },
     "remoteUser": "root"

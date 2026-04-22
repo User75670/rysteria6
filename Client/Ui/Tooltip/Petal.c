@@ -204,7 +204,7 @@ struct rr_ui_element *rr_ui_petal_tooltip_init(uint8_t id, uint8_t rarity)
                                   rr_ui_text_init("Health: ", 12, 0xff44ff44),
                                   rr_ui_text_init(hp, 12, 0xffffffff), NULL),
                               -1, 0));
-    if (id != rr_petal_id_shell && id != rr_petal_id_crest &&
+    if (id != rr_petal_id_crest &&
         id != rr_petal_id_third_eye && id != rr_petal_id_meat)
         rr_ui_container_add_element(
             this,
@@ -213,23 +213,23 @@ struct rr_ui_element *rr_ui_petal_tooltip_init(uint8_t id, uint8_t rarity)
                                   rr_ui_text_init("Damage: ", 12, 0xffff4444),
                                   rr_ui_text_init(dmg, 12, 0xffffffff), NULL),
                               -1, 0));
-    if (id == rr_petal_id_shell)
-    {
-        char *extra = malloc((sizeof *extra) * 16);
-        rr_sprintf(extra, (1 + 0.1 * 75) * RR_PETAL_DATA[id].damage *
-                              RR_PETAL_DATA[id].scale[rarity].damage /
-                              RR_PETAL_DATA[id].count[rarity]);
-        rr_ui_container_add_element(
-            this, rr_ui_set_justify(
-                      rr_ui_h_container_init(
-                          rr_ui_container_init(), 0, 0,
-                          rr_ui_text_init("Damage: ", 12, 0xffff4444),
-                          rr_ui_text_init(dmg, 12, 0xffffffff),
-                          rr_ui_text_init(" ~ ", 12, 0xffffffff),
-                          rr_ui_text_init(extra, 12, 0xffffffff), NULL),
-                      -1, 0));
-    }
-    else if (id == rr_petal_id_magnet)
+    // if (id == rr_petal_id_shell)
+    // {
+    //     char *extra = malloc((sizeof *extra) * 16);
+    //     rr_sprintf(extra, (1 + 0.1 * 75) * RR_PETAL_DATA[id].damage *
+    //                           RR_PETAL_DATA[id].scale[rarity].damage /
+    //                           RR_PETAL_DATA[id].count[rarity]);
+    //     rr_ui_container_add_element(
+    //         this, rr_ui_set_justify(
+    //                   rr_ui_h_container_init(
+    //                       rr_ui_container_init(), 0, 0,
+    //                       rr_ui_text_init("Damage: ", 12, 0xffff4444),
+    //                       rr_ui_text_init(dmg, 12, 0xffffffff),
+    //                       rr_ui_text_init(" ~ ", 12, 0xffffffff),
+    //                       rr_ui_text_init(extra, 12, 0xffffffff), NULL),
+    //                   -1, 0));
+    // } else
+    if (id == rr_petal_id_magnet)
     {
         struct rr_ui_element *text =
             rr_ui_dynamic_text_init(12, 0xffffffff, get_pickup_range);
@@ -389,7 +389,31 @@ struct rr_ui_element *rr_ui_petal_tooltip_init(uint8_t id, uint8_t rarity)
                               RR_RARITY_COLORS[rarity >= 1 ? rarity - 1 : 0]),
                           rr_ui_text_init(" Ornithomimus", 12, 0xffffffff), NULL),
                       -1, 0));
-    } 
+    } else if (id == rr_petal_id_eggOP)
+    {
+        rr_ui_container_add_element(
+            this, rr_ui_set_justify(
+                      rr_ui_h_container_init(
+                          rr_ui_container_init(), 0, 0,
+                          rr_ui_text_init("Spawns: ", 12, 0xffe07422),
+                          rr_ui_text_init(
+                              RR_RARITY_NAMES[rarity >= 0 ? rarity - 0 : 0], 12,
+                              RR_RARITY_COLORS[rarity >= 0 ? rarity - 0 : 0]),
+                          rr_ui_text_init(" T-Rex", 12, 0xffffffff), NULL),
+                      -1, 0));
+    } else if (id == rr_petal_id_eggTest)
+    {
+        rr_ui_container_add_element(
+            this, rr_ui_set_justify(
+                      rr_ui_h_container_init(
+                          rr_ui_container_init(), 0, 0,
+                          rr_ui_text_init("Spawns: ", 12, 0xffe07422),
+                          rr_ui_text_init(
+                              RR_RARITY_NAMES[rarity >= 1 ? rarity - 1 : 0], 12,
+                              RR_RARITY_COLORS[rarity >= 1 ? rarity - 1 : 0]),
+                          rr_ui_text_init(" Random mob", 12, 0xffffffff), NULL),
+                      -1, 0));
+    }
     else if (id == rr_petal_id_berry)
     {
         char *extra = malloc((sizeof *extra) * 16);
@@ -530,6 +554,18 @@ struct rr_ui_element *rr_ui_petal_tooltip_init(uint8_t id, uint8_t rarity)
                                   rr_ui_text_init("Stun: ", 12, 0xff4266f5),
                                   rr_ui_text_init(extra, 12, 0xffffffff), NULL),
                               -1, 0));
+    } else if (id == rr_petal_id_permastun)
+    {
+        char *extra = malloc((sizeof *extra) * 8);
+        sprintf(extra, "%.1fs",
+                1 + sqrtf(RR_PETAL_RARITY_SCALE[rarity].heal) / 3);
+        rr_ui_container_add_element(
+            this,
+            rr_ui_set_justify(rr_ui_h_container_init(
+                                  rr_ui_container_init(), 0, 0,
+                                  rr_ui_text_init("Stun: ", 12, 0xff4266f5),
+                                  rr_ui_text_init("Infinite", 12, 0xffffffff), NULL),
+                                     -1, 0));
     }
     else if (id == rr_petal_id_lightning)
     {

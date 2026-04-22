@@ -27,7 +27,7 @@
 #include <Shared/pb.h>
 #include <Client/DOM.h>
 
-static uint8_t min_level_to_chat = 3;
+static uint8_t min_level_to_chat = 1;
 
 static void chat_bar_on_event(struct rr_ui_element *this, struct rr_game *game)
 {

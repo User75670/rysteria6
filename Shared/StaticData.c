@@ -52,7 +52,7 @@ struct rr_petal_data RR_PETAL_DATA[rr_petal_id_max] = {
     {rr_petal_id_fossil,    rr_rarity_id_common,    offensive,  5.0f, 150.0f,   0.0f, 100,  0, {1,1,1,1,1,1,1,1}},
     {rr_petal_id_stinger,   rr_rarity_id_common,    offensive, 70.0f,   3.0f,  10.0f, 150,  0, {1,1,1,1,1,3,5,5}},
     {rr_petal_id_berry,     rr_rarity_id_rare,      offensive,  5.0f,   5.0f,  12.0f,  13,  0, {1,1,1,1,1,2,3,3}},
-    {rr_petal_id_shell,     rr_rarity_id_rare,      offensive, 10.0f,  16.0f,   0.0f,  50, 13, {1,1,1,1,1,2,3,3}},
+    {rr_petal_id_shell,     rr_rarity_id_rare,      offensive, 30.0f,  16.0f,   0.0f,  75, 13, {1,1,1,1,2,2,3,3}},
     {rr_petal_id_peas,      rr_rarity_id_rare,      offensive, 22.0f,  12.0f,   8.0f,  13, 12, {4,4,4,4,4,4,5,5}},
     {rr_petal_id_leaf,      rr_rarity_id_unusual,   offensive,  9.0f,   8.0f,   8.0f,  38,  0, {1,1,1,1,1,2,2,2}},
     {rr_petal_id_egg,       rr_rarity_id_unusual,   defensive,  1.0f,  75.0f,  10.0f,  25,100, {4,4,3,3,3,2,2,2}},
@@ -88,7 +88,11 @@ struct rr_petal_data RR_PETAL_DATA[rr_petal_id_max] = {
     {rr_petal_id_quetz_egg,  rr_rarity_id_unusual,   defensive,  1.0f,  75.0f,  10.0f,  25, 75, {4,4,4,3,3,3,2,2}},
     {rr_petal_id_edmo_egg,  rr_rarity_id_unusual,   defensive,  1.0f,  75.0f,  10.0f,  25, 75, {4,4,4,4,3,3,3,2}},
     {rr_petal_id_pachy_egg,  rr_rarity_id_unusual,   defensive,  1.0f,  75.0f,  10.0f,  25, 75, {4,4,4,4,3,3,3,2}},
-    {rr_petal_id_orni_egg,  rr_rarity_id_unusual,   defensive,  1.0f,  75.0f,  10.0f,  25, 50, {6,6,5,5,5,4,4,3}}
+    {rr_petal_id_orni_egg,  rr_rarity_id_unusual,   defensive,  1.0f,  75.0f,  10.0f,  25, 50, {6,6,5,5,5,4,4,3}},
+    {rr_petal_id_obliterator,rr_rarity_id_common,    offensive, 1000000000.0f,  1000000000.0f,   0.0f,  0,  0, {1,1,1,1,1,1,1,1}},
+    {rr_petal_id_eggOP,       rr_rarity_id_unusual,   defensive,  1.0f,  75.0f,  10.0f,  0,0, {1,1,1,1,1,1,1,1}},
+    {rr_petal_id_eggTest,    rr_rarity_id_unusual,   defensive,  1.0f,  75.0f,  10.0f,  25,100, {1,1,1,1,1,1,1,1}},
+    {rr_petal_id_permastun,      rr_rarity_id_unusual,   defensive,  0.0f,  100.0f,  0.0f,  0.0,  0, {1,1,1,1,1,1,1,1}},
 };    
 
 char const *RR_PETAL_NAMES[rr_petal_id_max] = {
@@ -97,7 +101,8 @@ char const *RR_PETAL_NAMES[rr_petal_id_max] = {
     "Bone",     "Web",       "Seed",      "Gravel", "Club",     "Crest",   "Droplet",
     "Beak",     "Lightning", "Third Eye", "Nest",   "Fireball", "Meat",    "Bubble",
     "Meteor",   "Mandible",  "Wax",       "Sand",   "Mint", "Dako Egg", "Pter Egg",
-    "Fern Egg", "Tree Egg", "Anky Egg", "Trice Egg", "Quetz Egg", "Edmo Egg", "Pachy Egg", "Orni Egg"
+    "Fern Egg", "Tree Egg", "Anky Egg", "Trice Egg", "Quetz Egg", "Edmo Egg", "Pachy Egg", "Orni Egg",
+    "Obliterator", "OP egg", "Test egg", "Permastun"
 };
     
 char const *RR_PETAL_DESCRIPTIONS[rr_petal_id_max] = {
@@ -143,7 +148,11 @@ char const *RR_PETAL_DESCRIPTIONS[rr_petal_id_max] = {
     "Spawns a pet quetzalcoatlus to protect you",
     "Spawns a pet edmontosaurus to protect you",
     "Spawns a pet pachycephalosaurus to protect you",
-    "Spawns a pet ornithomimus to protect you"
+    "Spawns a pet ornithomimus to protect you", 
+    "Obliterate any enemy",
+    "OP. Spawns a pet T-rex to protect you.",
+    "Test",
+    "Permanently stuns enemies."
 };
 
 struct rr_mob_data RR_MOB_DATA[rr_mob_id_max] = {
@@ -265,6 +274,7 @@ static void init_game_coefficients()
         RR_DROP_RARITY_COEFFICIENTS[a] = RR_DROP_RARITY_COEFFICIENTS[a] / sum +
                                          RR_DROP_RARITY_COEFFICIENTS[a - 1];
     }
+    
     RR_DROP_RARITY_COEFFICIENTS[rr_rarity_id_exotic + 1] = 1;
     for (uint64_t a = 1; a <= rr_rarity_id_ultimate; ++a)
     {

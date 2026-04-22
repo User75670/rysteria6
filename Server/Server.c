@@ -270,9 +270,9 @@ void rr_server_client_broadcast_update(struct rr_server_client *this)
     sprintf(joined_code, "%s-%s", server->server_alias, squad->squad_code);
     proto_bug_write_string(&encoder, joined_code, 16, "squad code");
     proto_bug_write_varuint(&encoder, this->afk_ticks, "afk_ticks");
-    if (this->afk_ticks > RR_AFK_WARNING)
-        proto_bug_write_string(&encoder, this->afk_challenge, 7,
-                               "afk_challenge");
+    // if (this->afk_ticks > RR_AFK_WARNING)
+    //     proto_bug_write_string(&encoder, this->afk_challenge, 7,
+    //                            "afk_challenge");
     proto_bug_write_uint8(&encoder, this->player_info != NULL, "in game");
     if (this->player_info != NULL)
         rr_simulation_write_binary(&server->simulation, &encoder,
@@ -545,11 +545,11 @@ static int handle_lws_event(struct rr_server *this, struct lws *ws,
             proto_bug_read_string(&encoder, client->rivet_account.code, 100,
                                   "oauth2 code");
 
-#ifndef SANDBOX
-if (
-                strcmp(client->rivet_account.uuid, "bef6cc6c-f265-41ea-b25b-212f0cde1901") == 0
-            )
-#endif
+// #ifndef SANDBOX
+// if (
+//                 strcmp(client->rivet_account.uuid, "bef6cc6c-f265-41ea-b25b-212f0cde1901") == 0
+//             )
+// #endif
                 client->dev = 1;
 
 #ifdef RIVET_BUILD
@@ -1066,7 +1066,7 @@ if (
                 }
             }
             if (!rr_validate_user_string(animation->message) ||
-                level_from_xp(client->experience) < 3)
+                level_from_xp(client->experience) < 1)
             {
                 printf("[blocked chat] %s: %s\n",
                        animation->name, animation->message);

@@ -768,6 +768,16 @@ system_egg_hatching_logic(struct rr_simulation *simulation,
     {
         m_id = rr_mob_id_ornithomimus;
         m_rar = petal->rarity >= 1 ? petal->rarity - 1 : 0;
+    } else if (petal->id == rr_petal_id_eggOP)
+    {
+        m_id = rr_mob_id_trex;
+        m_rar = petal->rarity >= 0 ? petal->rarity - 0 : 0;
+    }
+    else if (petal->id == rr_petal_id_eggTest)
+    {
+        char mobs[] = {rr_mob_id_trex, rr_mob_id_dakotaraptor, rr_mob_id_pteranodon, rr_mob_id_fern, rr_mob_id_tree, rr_mob_id_ankylosaurus, rr_mob_id_triceratops, rr_mob_id_quetzalcoatlus, rr_mob_id_edmontosaurus, rr_mob_id_pachycephalosaurus, rr_mob_id_ornithomimus, rr_mob_id_meteor};
+        m_id = mobs[rand() % 12];
+        m_rar = petal->rarity >= 0 ? petal->rarity - 1 : 0;
     }
     else if (petal->id == rr_petal_id_meteor)
     {
@@ -991,7 +1001,10 @@ static void rr_system_petal_reload_foreach_function(EntityIdx id,
                     data->id == rr_petal_id_quetz_egg ||
                     data->id == rr_petal_id_edmo_egg ||
                     data->id == rr_petal_id_pachy_egg ||
-                    data->id == rr_petal_id_orni_egg)
+                    data->id == rr_petal_id_orni_egg || 
+                    data->id == rr_petal_id_eggOP ||
+                    data->id == rr_petal_id_eggTest
+                )
                 {
                     system_nest_egg_choosing_logic(simulation, player_info,
                                                    p_petal->entity_hash);

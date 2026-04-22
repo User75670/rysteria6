@@ -150,7 +150,11 @@ enum rr_petal_id
     rr_petal_id_edmo_egg,  // 39
     rr_petal_id_pachy_egg, // 40
     rr_petal_id_orni_egg, // 41
-    rr_petal_id_max,       //  42
+    rr_petal_id_obliterator, // 42
+    rr_petal_id_eggOP, // 43
+    rr_petal_id_eggTest, // 44
+    rr_petal_id_permastun, // 45
+    rr_petal_id_max,       // 46  
 };
 
 enum rr_mob_id
