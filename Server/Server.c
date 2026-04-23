@@ -1048,23 +1048,23 @@ if (
                 --this->simulation.animation_length;
                 break;
             }
-            if (client->afk_ticks > RR_AFK_WARNING &&
-                strlen(animation->message) == 6)
-            {
-                char temp[7];
-                for (uint8_t i = 0; i < 6; ++i)
-                    temp[i] = tolower(animation->message[i]);
-                temp[6] = 0;
-                if (strcmp(temp, client->afk_challenge) == 0)
-                {
-                    printf("[afk] %s passed in %.2fs\n",
-                           client->rivet_account.uuid,
-                           (client->afk_ticks - RR_AFK_WARNING) / 25.0f);
-                    client->afk_ticks = 0;
-                    --this->simulation.animation_length;
-                    break;
-                }
-            }
+            // if (client->afk_ticks > RR_AFK_WARNING &&
+            //     strlen(animation->message) == 6)
+            // {
+            //     char temp[7];
+            //     for (uint8_t i = 0; i < 6; ++i)
+            //         temp[i] = tolower(animation->message[i]);
+            //     temp[6] = 0;
+            //     if (strcmp(temp, client->afk_challenge) == 0)
+            //     {
+            //         printf("[afk] %s passed in %.2fs\n",
+            //                client->rivet_account.uuid,
+            //                (client->afk_ticks - RR_AFK_WARNING) / 25.0f);
+            //         client->afk_ticks = 0;
+            //         --this->simulation.animation_length;
+            //         break;
+            //     }
+            // }
             if (!rr_validate_user_string(animation->message) ||
                 level_from_xp(client->experience) < 1)
             {
@@ -1534,36 +1534,41 @@ static void server_tick(struct rr_server *this)
                 }
                 continue;
             }
-            if (!client->dev && client->player_info != NULL &&
-                level_from_xp(client->experience) >= 3)
+            if (
+                // !client->dev && 
+                client->player_info != NULL &&
+                level_from_xp(client->experience) >= 1)
             {
-                if (++client->afk_ticks > RR_AFK_TIMEOUT)
-                {
-                    printf("[afk] %s kicked\n", client->rivet_account.uuid);
-                    rr_simulation_request_entity_deletion(
-                        &this->simulation, client->player_info->parent_id);
-                    client->player_info = NULL;
-                    rr_client_leave_squad(this, client);
-                    if (client->disconnected == 0)
-                    {
-                        struct proto_bug failure;
-                        proto_bug_init(&failure, outgoing_message);
-                        proto_bug_write_uint8(
-                            &failure, rr_clientbound_squad_fail, "header");
-                        proto_bug_write_uint8(&failure, 3, "fail type");
-                        rr_server_client_write_message(
-                            client, failure.start,
-                            failure.current - failure.start);
-                    }
-                }
+                // if (++client->afk_ticks > RR_AFK_TIMEOUT)
+                // {
+                //     printf("[afk] %s kicked\n", client->rivet_account.uuid);
+                //     rr_simulation_request_entity_deletion(
+                //         &this->simulation, client->player_info->parent_id);
+                //     client->player_info = NULL;
+                //     rr_client_leave_squad(this, client);
+                //     if (client->disconnected == 0)
+                //     {
+                //         struct proto_bug failure;
+                //         proto_bug_init(&failure, outgoing_message);
+                //         proto_bug_write_uint8(
+                //             &failure, rr_clientbound_squad_fail, "header");
+                //         proto_bug_write_uint8(&failure, 3, "fail type");
+                //         rr_server_client_write_message(
+                //             client, failure.start,
+                //             failure.current - failure.start);
+                //     }
+                // }
+                                client->afk_ticks = 0;
+
             }
             else
-                client->afk_ticks = 0;
-            if (client->afk_ticks == RR_AFK_WARNING) {
-                for (uint32_t i = 0; i < 6; ++i)
-                    client->afk_challenge[i] = (char)(97 + rand() % 26);
-                client->afk_challenge[6] = 0;
-            }
+                            // client->afk_ticks = 0;
+
+            // if (client->afk_ticks == RR_AFK_WARNING) {
+            //     for (uint32_t i = 0; i < 6; ++i)
+            //         client->afk_challenge[i] = (char)(97 + rand() % 26);
+            //     client->afk_challenge[6] = 0;
+            // }
             if (client->pending_kick)
                 lws_callback_on_writable(client->socket_handle);
             if (!client->verified)
