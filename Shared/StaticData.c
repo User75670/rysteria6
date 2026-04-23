@@ -67,7 +67,7 @@ struct rr_petal_data RR_PETAL_DATA[rr_petal_id_max] = {
     {rr_petal_id_club,      rr_rarity_id_common,    offensive,  3.0f,1400.0f,   0.0f, 200,  0, {1,1,1,1,1,1,1,1}},
     {rr_petal_id_crest,     rr_rarity_id_rare,      offensive,  0.0f,   0.0f,   0.0f,   0,  0, {0,0,0,0,0,0,0,0}},
     {rr_petal_id_droplet,   rr_rarity_id_common,    offensive, 15.0f,   5.0f,   0.0f,  37,  0, {1,1,1,1,1,1,1,1}},
-    {rr_petal_id_beak,      rr_rarity_id_unusual,   defensive,  5.0f,   5.0f,   0.0f,  55,  0, {1,1,1,1,1,1,1,1}},
+    {rr_petal_id_beak,      rr_rarity_id_common,   defensive,  5.0f,   5.0f,   0.0f,  55,  0, {1,1,1,1,1,1,1,1}},
     {rr_petal_id_lightning, rr_rarity_id_unusual,   offensive,  7.0f,   1.0f,   0.0f,  63,  0, {1,1,1,1,1,1,1,1}},
     {rr_petal_id_third_eye, rr_rarity_id_legendary, offensive,  0.0f,   0.0f,   0.0f,   0,  0, {0,0,0,0,0,0,0,0}},
     {rr_petal_id_nest,      rr_rarity_id_legendary, defensive,  5.0f,  25.0f,   0.0f, 250, 13, {1,1,1,1,1,1,1,1}},
@@ -92,7 +92,8 @@ struct rr_petal_data RR_PETAL_DATA[rr_petal_id_max] = {
     {rr_petal_id_obliterator,rr_rarity_id_common,    offensive, 1000000000.0f,  1000000000.0f,   0.0f,  0,  0, {1,1,1,1,1,1,1,1}},
     {rr_petal_id_eggOP,       rr_rarity_id_unusual,   defensive,  1.0f,  75.0f,  10.0f,  0,0, {1,1,1,1,1,1,1,1}},
     {rr_petal_id_eggTest,    rr_rarity_id_unusual,   defensive,  1.0f,  75.0f,  10.0f,  25,100, {1,1,1,1,1,1,1,1}},
-    {rr_petal_id_permastun,      rr_rarity_id_unusual,   defensive,  0.0f,  100.0f,  0.0f,  0.0,  0, {1,1,1,1,1,1,1,1}},
+    {rr_petal_id_permastun,      rr_rarity_id_common,   defensive,  0.0f,  1000000000.0f,  0.0f,  0.0,  0, {1,1,1,1,1,1,1,1}},
+    {rr_petal_id_superfling,      rr_rarity_id_common,   defensive,  0.0f,  1000000000.0f,  0.0f,  0.0,  0, {1,1,1,1,1,1,1,1}},
 };    
 
 char const *RR_PETAL_NAMES[rr_petal_id_max] = {
@@ -102,7 +103,7 @@ char const *RR_PETAL_NAMES[rr_petal_id_max] = {
     "Beak",     "Lightning", "Third Eye", "Nest",   "Fireball", "Meat",    "Bubble",
     "Meteor",   "Mandible",  "Wax",       "Sand",   "Mint", "Dako Egg", "Pter Egg",
     "Fern Egg", "Tree Egg", "Anky Egg", "Trice Egg", "Quetz Egg", "Edmo Egg", "Pachy Egg", "Orni Egg",
-    "Obliterator", "OP egg", "Test egg", "Permastun"
+    "Obliterator", "OP egg", "Test egg", "Permastun", "Superfling"
 };
     
 char const *RR_PETAL_DESCRIPTIONS[rr_petal_id_max] = {
@@ -149,10 +150,11 @@ char const *RR_PETAL_DESCRIPTIONS[rr_petal_id_max] = {
     "Spawns a pet edmontosaurus to protect you",
     "Spawns a pet pachycephalosaurus to protect you",
     "Spawns a pet ornithomimus to protect you", 
-    "Obliterate any enemy",
-    "OP. Spawns a pet T-rex to protect you.",
-    "Test",
-    "Permanently stuns enemies."
+    "Obliterate any enemy. Dev-only petal.",
+    "OP. Spawns a pet T-rex to protect you. Dev-only petal.",
+    "Test. Dev-only petal.",
+    "Permanently stuns enemies. Dev-only petal.",
+    "Flings enemies very far away. Dev-only petal."
 };
 
 struct rr_mob_data RR_MOB_DATA[rr_mob_id_max] = {
