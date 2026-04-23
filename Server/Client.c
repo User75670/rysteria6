@@ -50,6 +50,7 @@ void rr_server_client_init(struct rr_server_client *this)
 
 void rr_server_client_create_flower(struct rr_server_client *this)
 {
+    
     if (this->player_info == NULL)
         return;
     if (this->player_info->flower_id != RR_NULL_ENTITY)

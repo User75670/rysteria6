@@ -220,7 +220,7 @@ struct rr_petal_data
     float clump_radius;
     uint32_t cooldown;
     uint32_t secondary_cooldown; // for stuff like projectiles
-    uint8_t count[rr_rarity_id_max];
+    uint16_t count[rr_rarity_id_max];
 };
 
 struct rr_petal_rarity_scale

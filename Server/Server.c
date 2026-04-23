@@ -545,11 +545,11 @@ static int handle_lws_event(struct rr_server *this, struct lws *ws,
             proto_bug_read_string(&encoder, client->rivet_account.code, 100,
                                   "oauth2 code");
 
-// #ifndef SANDBOX
-// if (
-//                 strcmp(client->rivet_account.uuid, "bef6cc6c-f265-41ea-b25b-212f0cde1901") == 0
-//             )
-// #endif
+#ifndef SANDBOX
+if (
+                strcmp(client->rivet_account.uuid, "bef6cc6c-f265-41ea-b25b-212f0cde1901") == 0
+            )
+#endif
                 client->dev = 1;
 
 #ifdef RIVET_BUILD

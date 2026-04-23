@@ -48,13 +48,13 @@ struct rr_petal_data RR_PETAL_DATA[rr_petal_id_max] = {
 //   id                     min_rarity              scale        dmg      hp   clump   cd 2cd  count
     {rr_petal_id_none,      rr_rarity_id_common,    offensive,  0.0f,   0.0f,   0.0f,   0,  0, {0,0,0,0,0,0,0,0}},
     {rr_petal_id_basic,     rr_rarity_id_common,    offensive, 10.0f,  15.0f,   0.0f,  50,  0, {1,1,1,1,1,1,1,1}},
-    {rr_petal_id_pellet,    rr_rarity_id_common,    offensive,  8.0f,   5.0f,   0.0f,  13,  0, {1,2,2,3,3,5,6,6}},
-    {rr_petal_id_fossil,    rr_rarity_id_common,    offensive,  5.0f, 150.0f,   0.0f, 100,  0, {1,1,1,1,1,1,1,1}},
+    {rr_petal_id_pellet,    rr_rarity_id_common,    offensive,  9.0f,   5.0f,   0.0f,  13,  0, {1,2,2,3,3,5,6,6}},
+    {rr_petal_id_fossil,    rr_rarity_id_common,    offensive,  6.0f, 150.0f,   0.0f, 100,  0, {1,1,1,1,1,1,1,1}},
     {rr_petal_id_stinger,   rr_rarity_id_common,    offensive, 70.0f,   3.0f,  10.0f, 150,  0, {1,1,1,1,1,3,5,5}},
-    {rr_petal_id_berry,     rr_rarity_id_rare,      offensive,  5.0f,   5.0f,  12.0f,  13,  0, {1,1,1,1,1,2,3,3}},
-    {rr_petal_id_shell,     rr_rarity_id_rare,      offensive, 30.0f,  16.0f,   0.0f,  75, 13, {1,1,1,1,2,2,3,3}},
+    {rr_petal_id_berry,     rr_rarity_id_rare,      offensive,  8.0f,   5.0f,  12.0f,  13,  0, {1,1,1,1,1,2,3,3}},
+    {rr_petal_id_shell,     rr_rarity_id_rare,      offensive, 30.0f,  16.0f,   0.0f,  50, 13, {1,1,1,1,2,2,3,3}},
     {rr_petal_id_peas,      rr_rarity_id_rare,      offensive, 22.0f,  12.0f,   8.0f,  13, 12, {4,4,4,4,4,4,5,5}},
-    {rr_petal_id_leaf,      rr_rarity_id_unusual,   offensive,  9.0f,   8.0f,   8.0f,  38,  0, {1,1,1,1,1,2,2,2}},
+    {rr_petal_id_leaf,      rr_rarity_id_unusual,   offensive,  11.0f,  8.0f,   8.0f,  38,  0, {1,1,1,1,1,2,2,2}},
     {rr_petal_id_egg,       rr_rarity_id_unusual,   defensive,  1.0f,  75.0f,  10.0f,  25,100, {4,4,3,3,3,2,2,2}},
     {rr_petal_id_magnet,    rr_rarity_id_unusual,   defensive,  2.0f,  25.0f,   0.0f,  38,  0, {1,1,1,1,1,1,1,1}},
     {rr_petal_id_uranium,   rr_rarity_id_rare,      offensive,  3.0f,  40.0f,   0.0f,  25, 25, {1,1,1,1,1,1,1,1}},
@@ -63,7 +63,7 @@ struct rr_petal_data RR_PETAL_DATA[rr_petal_id_max] = {
     {rr_petal_id_bone,      rr_rarity_id_common,    defensive,  2.5f,  25.0f,   0.0f,  68,  0, {1,1,1,1,1,1,1,1}},
     {rr_petal_id_web,       rr_rarity_id_rare,      defensive,  5.0f,   5.0f,   0.0f,  50, 13, {1,1,1,1,1,1,1,1}},
     {rr_petal_id_seed,      rr_rarity_id_legendary, defensive,  1.0f,  75.0f,   0.0f,  63, 13, {1,1,1,1,1,1,1,1}},
-    {rr_petal_id_gravel,    rr_rarity_id_unusual,   offensive,  9.0f,  20.0f,   0.0f,  20, 10, {1,2,2,2,3,3,4,4}},
+    {rr_petal_id_gravel,    rr_rarity_id_unusual,   offensive,  9.0f,  25.0f,   0.0f,  20, 10, {1,2,2,2,3,3,4,4}},
     {rr_petal_id_club,      rr_rarity_id_common,    offensive,  3.0f,1400.0f,   0.0f, 200,  0, {1,1,1,1,1,1,1,1}},
     {rr_petal_id_crest,     rr_rarity_id_rare,      offensive,  0.0f,   0.0f,   0.0f,   0,  0, {0,0,0,0,0,0,0,0}},
     {rr_petal_id_droplet,   rr_rarity_id_common,    offensive, 15.0f,   5.0f,   0.0f,  37,  0, {1,1,1,1,1,1,1,1}},
@@ -73,7 +73,7 @@ struct rr_petal_data RR_PETAL_DATA[rr_petal_id_max] = {
     {rr_petal_id_nest,      rr_rarity_id_legendary, defensive,  5.0f,  25.0f,   0.0f, 250, 13, {1,1,1,1,1,1,1,1}},
     {rr_petal_id_fireball,  rr_rarity_id_unusual,   offensive,260.0f,   1.0f,   0.0f, 600,  0, {1,1,1,1,1,1,1,1}},
     {rr_petal_id_meat,      rr_rarity_id_common,    offensive,  0.0f,1600.0f,   0.0f, 188, 13, {1,1,1,1,1,1,1,1}},
-    {rr_petal_id_bubble,    rr_rarity_id_common,    defensive,  1.0f,  25.0f,   0.0f, 150,  3, {1,1,1,1,1,1,1,1}},
+    {rr_petal_id_bubble,    rr_rarity_id_common,    defensive,  0.0f,  1000.0f,   0.0f, 150,  3, {1,1,1,1,1,1,1,1}},
     {rr_petal_id_meteor,    rr_rarity_id_unusual,   defensive,  0.0f,   0.0f,   0.0f,  75,  0, {1,1,1,1,1,1,1,1}},
     {rr_petal_id_mandible,  rr_rarity_id_common,    offensive,  5.0f,  10.0f,   0.0f,  75,  0, {1,1,1,1,1,1,1,1}},
     {rr_petal_id_wax,       rr_rarity_id_unusual,   offensive, 10.0f,  10.0f,  10.0f,  38,  0, {2,2,2,2,2,2,2,2}},
@@ -81,8 +81,8 @@ struct rr_petal_data RR_PETAL_DATA[rr_petal_id_max] = {
     {rr_petal_id_mint,      rr_rarity_id_unusual,   offensive,  5.0f,  10.0f,  10.0f,  50, 25, {1,1,1,1,1,1,1,1}},
     {rr_petal_id_dako_egg,  rr_rarity_id_unusual,   defensive,  1.0f,  75.0f,  10.0f,  25, 50, {6,5,5,4,4,4,3,2}},
     {rr_petal_id_pter_egg,  rr_rarity_id_unusual,   defensive,  1.0f,  75.0f,  10.0f,  25, 50, {6,5,5,4,4,4,3,2}},
-    {rr_petal_id_fern_egg,  rr_rarity_id_unusual,   defensive,  1.0f,  75.0f,  10.0f,  25, 25, {8,8,7,6,5,4,3,2}},
-    {rr_petal_id_tree_egg,  rr_rarity_id_unusual,   defensive,  1.0f,  75.0f,  10.0f,  25, 150, {1,1,1,1,1,1,1,1}},
+    {rr_petal_id_fern_egg,  rr_rarity_id_common,   defensive,  1.0f,  75.0f,  10.0f,  25, 25, {6,6,6,5,5,5,3,2}},
+    {rr_petal_id_tree_egg,  rr_rarity_id_common,   defensive,  1.0f,  75.0f,  10.0f,  25, 150, {1,1,1,1,1,1,1,1}},
     {rr_petal_id_anky_egg,  rr_rarity_id_unusual,   defensive,  1.0f,  75.0f,  10.0f,  25, 75, {5,5,4,3,3,2,2,2}},
     {rr_petal_id_trice_egg,  rr_rarity_id_unusual,   defensive,  1.0f,  75.0f,  10.0f,  25, 50, {5,5,5,4,4,3,3,2}},
     {rr_petal_id_quetz_egg,  rr_rarity_id_unusual,   defensive,  1.0f,  75.0f,  10.0f,  25, 75, {4,4,4,3,3,3,2,2}},
@@ -611,20 +611,20 @@ RR_DEFINE_MAZE(HELL_CREEK, 80) = {
 {_,_,_,_,M,M,M,M,M,M,M,_,_,_,_,m,m,m,_,_,_,_,_,_,L,L,L,_,_,_,_,_,_,_,_,_,L,_,_,_}, // 22
 {_,_,_,M,M,_,_,_,M,M,M,M,_,_,m,m,m,_,_,_,m,m,m,_,_,_,L,L,_,_,l,l,_,_,l,_,l,l,_,_}, // 23
 {_,_,_,M,_,_,_,_,_,M,M,M,_,m,m,m,_,_,m,_,_,m,m,m,m,_,_,L,_,l,l,l,l,l,l,_,l,l,l,_}, // 24
-{_,_,_,M,M,_,M,_,_,_,M,_,_,m,m,_,_,m,m,m,_,m,m,L,L,L,_,L,_,l,l,l,_,l,l,_,l,l,l,_}, // 25
-{_,_,_,_,M,M,M,M,M,_,_,_,m,m,_,_,M,m,m,m,m,m,_,L,L,L,_,L,_,_,l,l,_,l,l,l,l,l,_,_}, // 26
-{_,_,_,_,_,_,M,M,M,M,m,m,m,m,_,M,M,_,_,m,m,_,_,L,L,L,L,L,_,_,_,l,_,_,l,l,l,l,_,_}, // 27
-{_,_,_,_,_,_,_,_,M,_,_,_,_,m,_,_,M,_,m,m,m,_,L,L,_,_,L,L,l,_,_,l,_,_,_,E,E,E,_,_}, // 28
-{_,_,c,c,c,c,_,_,_,_,_,_,_,m,m,_,_,_,_,m,m,_,_,_,_,L,L,L,l,l,l,l,l,l,_,E,E,_,_,_}, // 29
-{e,c,c,c,c,c,c,l,_,_,_,_,_,_,m,m,m,m,_,_,_,_,L,L,L,L,_,_,_,_,_,_,_,l,_,_,E,_,_,_}, // 30
-{_,_,c,c,c,c,_,_,_,_,_,_,_,_,_,_,_,m,L,L,L,L,L,_,_,_,_,e,e,_,_,_,_,_,_,E,E,E,_,_}, // 31
-{x,c,c,c,c,c,c,m,_,_,u,u,U,_,_,_,_,_,_,_,_,_,_,_,_,R,R,e,e,e,e,e,E,E,E,E,E,E,_,_}, // 32
-{_,_,c,c,c,c,_,_,_,u,u,u,U,U,U,U,_,_,_,_,_,_,_,_,R,R,R,e,e,e,e,e,_,_,_,_,l,_,_,L}, // 33
-{_,_,_,_,_,_,_,_,u,u,u,u,_,U,U,U,U,U,r,r,_,_,_,R,R,R,_,e,e,e,_,_,_,_,_,_,l,_,L,L}, // 34
+{_,_,_,M,M,_,M,M,_,_,M,_,_,m,m,_,_,m,m,m,_,m,m,L,L,L,_,L,_,l,l,l,_,l,l,_,l,l,l,_}, // 25
+{_,_,M,M,M,M,M,M,M,_,_,_,m,m,_,_,m,m,m,m,m,m,_,L,L,L,_,L,_,_,l,l,_,l,l,l,l,l,_,_}, // 26
+{_,M,M,M,_,_,_,_,M,M,m,m,m,m,_,m,m,_,_,m,m,_,_,L,L,L,L,L,_,_,_,l,_,_,l,l,l,l,_,_}, // 27
+{x,x,_,_,_,_,_,_,_,_,_,_,_,m,_,_,m,_,m,m,m,_,L,L,_,_,L,L,l,_,_,l,_,_,_,E,E,E,_,_}, // 28
+{x,x,_,X,X,X,X,X,_,_,_,_,_,m,m,_,_,_,_,m,m,_,_,_,_,L,L,L,l,l,l,l,l,l,_,E,E,_,_,_}, // 29
+{x,x,_,_,_,x,x,X,_,_,_,_,_,_,m,m,m,m,_,_,_,_,L,L,L,L,_,_,_,_,_,_,_,l,_,_,E,_,_,_}, // 30
+{x,x,x,_,x,x,x,X,_,_,_,_,_,_,_,_,_,m,L,L,L,L,L,_,_,_,_,e,e,_,_,_,_,_,_,E,E,E,_,_}, // 31
+{_,x,x,x,x,x,_,X,_,_,_,u,U,_,_,_,_,_,_,_,_,_,_,_,_,R,R,e,e,e,e,e,E,E,E,E,E,E,_,_}, // 32
+{_,_,x,x,x,_,_,X,_,_,u,u,U,U,U,U,_,_,_,_,_,_,_,_,R,R,R,e,e,e,e,e,_,_,_,_,l,_,_,L}, // 33
+{_,_,_,x,_,_,_,_,_,u,u,u,_,U,U,U,U,U,r,r,_,_,_,R,R,R,_,e,e,e,_,_,_,_,_,_,l,_,L,L}, // 34
 {_,_,_,_,_,_,_,_,u,u,r,r,_,_,U,U,_,r,r,r,r,r,_,r,R,R,_,_,e,e,_,l,l,l,l,_,l,_,l,l}, // 35
 {_,_,_,_,_,_,C,C,u,_,r,r,R,_,U,U,_,_,_,_,r,r,r,r,R,R,R,e,e,_,_,l,_,_,L,_,l,_,l,l}, // 36
 {_,_,_,c,c,c,C,C,C,_,_,_,_,_,U,U,U,_,_,_,_,r,r,r,_,R,R,e,e,_,_,l,l,_,_,_,l,_,l,l}, // 37
-{_,_,c,c,c,_,_,C,C,r,r,r,r,u,u,_,e,e,e,e,e,e,_,_,_,_,_,e,e,e,_,_,l,l,l,l,l,l,l,l}, // 38
+{_,_,c,c,c,_,_,C,C,r,r,r,r,U,U,_,e,e,e,e,e,e,_,_,_,_,_,e,e,e,_,_,l,l,l,l,l,l,l,l}, // 38
 {_,_,_,_,_,_,_,_,_,r,r,r,r,_,_,_,_,_,e,_,e,e,E,E,_,_,e,e,_,e,E,_,_,_,_,_,_,_,_,_}, // 39
 };
 // clang-format on
@@ -636,6 +636,7 @@ RR_DEFINE_MAZE(BURROW, 4) = {{1, 1}, {0, 1}};
 
 struct rr_maze_declaration RR_MAZES[rr_biome_id_max] = {
     {MAZE_ENTRY(HELL_CREEK, 1024), 7, {
+        // {-2, -2, 43, 43, 3, 31, 1}, // pvp
         {2, 27, 3, 2, 3, 38, 1},   // 0
         {14, 33, 3, 5, 14, 34, 20},  // 1
         {23, 35, 2, 2, 23, 36, 40},  // 2

@@ -42,7 +42,8 @@ void rr_component_arena_init(struct rr_component_arena *this,
                              struct rr_simulation *simulation)
 {
     memset(this, 0, sizeof *this);
-#if defined(RR_SERVER) && defined(PVP)
+#if defined(RR_SERVER) 
+// && defined(PVP)
     this->pvp = 1;
 #endif
 }
