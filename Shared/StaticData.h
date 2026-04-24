@@ -155,7 +155,8 @@ enum rr_petal_id
     rr_petal_id_eggTest, // 44
     rr_petal_id_permastun, // 45
     rr_petal_id_superfling, // 46
-    rr_petal_id_max,       // 47 
+    rr_petal_id_permastun_obtainable, // 47
+    rr_petal_id_max,       // 48 
 };
 
 enum rr_mob_id

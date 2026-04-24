@@ -130,7 +130,7 @@ uint8_t pachy_rex_tree_zone() {
     0.4 ? rr_mob_id_pachycephalosaurus : rr_frand() > 0.0156 ? rr_mob_id_trex : rr_mob_id_tree;
 }
 uint8_t pter_fern() {
-    return rr_frand() > 0.3 ? rr_mob_id_pteranodon : rr_frand() > 0.1 ? rr_mob_id_pachycephalosaurus : rr_mob_id_fern;
+    return rr_frand() > 0.3 ? rr_mob_id_pteranodon : rr_frand() > 0.1 ? rr_mob_id_trex : rr_mob_id_fern;
 }
 uint8_t trex_dako_pter_zone() { 
     return rr_frand() > 0.6 ? rr_mob_id_trex : rr_frand() > 0.5 ? rr_mob_id_dakotaraptor : rr_mob_id_pteranodon; 

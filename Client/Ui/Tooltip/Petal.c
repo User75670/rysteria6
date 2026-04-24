@@ -554,7 +554,7 @@ struct rr_ui_element *rr_ui_petal_tooltip_init(uint8_t id, uint8_t rarity)
                                   rr_ui_text_init("Stun: ", 12, 0xff4266f5),
                                   rr_ui_text_init(extra, 12, 0xffffffff), NULL),
                               -1, 0));
-    } else if (id == rr_petal_id_permastun)
+    } else if (id == rr_petal_id_permastun || id == rr_petal_id_permastun_obtainable)
     {
         char *extra = malloc((sizeof *extra) * 8);
         sprintf(extra, "%.1fs",
