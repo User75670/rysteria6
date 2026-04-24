@@ -244,7 +244,7 @@ void tick_return_to_higher_zone(EntityIdx entity,
                                0, arena->maze->maze_dim - 1);
     struct rr_maze_grid *grid =
         rr_component_arena_get_grid(arena, grid_x, grid_y);
-    if (grid->difficulty >= 48 || grid->value == 0 || (grid->value & 8))
+    if (grid->difficulty >= 1 || grid->value == 0 || (grid->value & 8))
         return;
     for (int8_t i = -1; i <= 1; ++i)
         for (int8_t j = -1; j <= 1; ++j)

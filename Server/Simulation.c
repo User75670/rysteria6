@@ -127,7 +127,7 @@ uint8_t quetz_trice_zone()
 // x30 tree chance
 uint8_t pachy_rex_tree_zone() {
     return rr_frand() > 
-    0.4 ? rr_mob_id_pachycephalosaurus : rr_frand() > 0.01625 ? rr_mob_id_trex : rr_mob_id_tree;
+    0.4 ? rr_mob_id_pachycephalosaurus : rr_frand() > 0.0156 ? rr_mob_id_trex : rr_mob_id_tree;
 }
 uint8_t pter_fern() {
     return rr_frand() > 0.3 ? rr_mob_id_pteranodon : rr_frand() > 0.1 ? rr_mob_id_pachycephalosaurus : rr_mob_id_fern;
