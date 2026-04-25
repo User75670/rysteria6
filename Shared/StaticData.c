@@ -88,7 +88,7 @@ struct rr_petal_data RR_PETAL_DATA[rr_petal_id_max] = {
     {rr_petal_id_quetz_egg,  rr_rarity_id_unusual,   defensive,  1.0f,  75.0f,  10.0f,  25, 75, {4,4,4,3,3,3,2,2}},
     {rr_petal_id_edmo_egg,  rr_rarity_id_unusual,   defensive,  1.0f,  75.0f,  10.0f,  25, 75, {4,4,4,4,3,3,3,2}},
     {rr_petal_id_pachy_egg,  rr_rarity_id_unusual,   defensive,  1.0f,  75.0f,  10.0f,  25, 75, {4,4,4,4,3,3,3,2}},
-    {rr_petal_id_orni_egg,  rr_rarity_id_unusual,   defensive,  1.0f,  75.0f,  10.0f,  25, 50, {6,6,5,5,5,4,4,3}},
+    {rr_petal_id_orni_egg,  rr_rarity_id_unusual,   defensive,  1.0f,  75.0f,  10.0f,  25, 25, {6,6,5,5,5,5,4,4}},
     {rr_petal_id_obliterator,rr_rarity_id_common,    offensive, 1000000000.0f,  1000000000.0f,   0.0f,  0,  0, {1,1,1,1,1,1,1,1}},
     {rr_petal_id_eggOP,       rr_rarity_id_unusual,   defensive,  1.0f,  75.0f,  10.0f,  0,0, {1,1,1,1,1,1,1,1}},
     {rr_petal_id_eggTest,    rr_rarity_id_unusual,   defensive,  1.0f,  75.0f,  10.0f,  25,100, {1,1,1,1,1,1,1,1}},
