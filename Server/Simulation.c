@@ -98,7 +98,7 @@ uint8_t trex_zone()
 }
 uint8_t quetz_zone()
 {
-    return rr_frand() > 0.2 ? rr_mob_id_quetzalcoatlus : rr_mob_id_fern;
+    return rr_frand() > 0.25 ? rr_mob_id_quetzalcoatlus : rr_mob_id_fern;
 }
 uint8_t fern_pachy_zone()
 {
@@ -136,7 +136,7 @@ uint8_t trex_dako_pter_zone() {
     return rr_frand() > 0.6 ? rr_mob_id_trex : rr_frand() > 0.5 ? rr_mob_id_dakotaraptor : rr_mob_id_pteranodon; 
 }
 uint8_t dako_quetz_zone() {
-    return rr_frand() > 0.1 ? rr_mob_id_dakotaraptor : rr_mob_id_quetzalcoatlus;
+    return rr_frand() > 0.2 ? rr_mob_id_dakotaraptor : rr_mob_id_quetzalcoatlus;
 }
 struct zone
 {
