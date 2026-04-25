@@ -710,7 +710,6 @@ void tick_ai_quetzalcoaltus(EntityIdx entity, struct rr_simulation *simulation)
     }
     case rr_ai_state_exotic_special:
     {
-        physical->knockback_scale = 125;
         struct rr_component_physical *physical2 =
             rr_simulation_get_physical(simulation, ai->target_entity);
 
@@ -721,7 +720,7 @@ void tick_ai_quetzalcoaltus(EntityIdx entity, struct rr_simulation *simulation)
         if (ai->ticks_until_next_action == 0)
         {
             ai->ticks_until_next_action = 20;
-
+            physical->knockback_scale = 125;
             rr_vector_from_polar(&delta, RR_PLAYER_SPEED * 54, physical->angle);
             rr_vector_add(&physical->acceleration, &delta);
             ai->ai_state = rr_ai_state_attacking;
