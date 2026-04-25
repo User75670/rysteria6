@@ -698,7 +698,7 @@ void tick_ai_quetzalcoaltus(EntityIdx entity, struct rr_simulation *simulation)
                                 rr_rarity_id_exotic)
             {
                 ai->ai_state = rr_ai_state_exotic_special;
-                ai->ticks_until_next_action = 40;
+                ai->ticks_until_next_action = 30;
             } else {
                 ai->ticks_until_next_action = 20;
                 rr_vector_from_polar(&delta, RR_PLAYER_SPEED * 18, physical->angle);
