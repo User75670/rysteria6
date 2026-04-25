@@ -54,7 +54,7 @@ struct rr_petal_data RR_PETAL_DATA[rr_petal_id_max] = {
     {rr_petal_id_berry,     rr_rarity_id_rare,      offensive,  8.0f,   5.0f,  12.0f,  13,  0, {1,1,1,1,1,2,3,3}},
     {rr_petal_id_shell,     rr_rarity_id_rare,      offensive, 30.0f,  16.0f,   0.0f,  50, 13, {1,1,1,1,2,2,3,3}},
     {rr_petal_id_peas,      rr_rarity_id_rare,      offensive, 22.0f,  12.0f,   8.0f,  13, 12, {4,4,4,4,4,4,5,5}},
-    {rr_petal_id_leaf,      rr_rarity_id_unusual,   offensive,  11.0f,  8.0f,   8.0f,  38,  0, {1,1,1,1,1,2,2,2}},
+    {rr_petal_id_leaf,      rr_rarity_id_unusual,   offensive,  11.0f,  8.0f,   8.0f,  38,  0, {1,1,1,1,2,2,3,3}},
     {rr_petal_id_egg,       rr_rarity_id_unusual,   defensive,  1.0f,  75.0f,  10.0f,  25,100, {4,4,3,3,3,2,2,2}},
     {rr_petal_id_magnet,    rr_rarity_id_unusual,   defensive,  2.0f,  25.0f,   0.0f,  38,  0, {1,1,1,1,1,1,1,1}},
     {rr_petal_id_uranium,   rr_rarity_id_rare,      offensive,  3.0f,  40.0f,   0.0f,  25, 25, {1,1,1,1,1,1,1,1}},
@@ -79,7 +79,7 @@ struct rr_petal_data RR_PETAL_DATA[rr_petal_id_max] = {
     {rr_petal_id_wax,       rr_rarity_id_unusual,   offensive, 10.0f,  10.0f,  10.0f,  38,  0, {2,2,2,2,2,2,2,2}},
     {rr_petal_id_sand,      rr_rarity_id_common,    offensive, 15.0f,  10.0f,  10.0f,  37,  0, {4,4,4,4,4,4,4,4}},
     {rr_petal_id_mint,      rr_rarity_id_unusual,   offensive,  5.0f,  10.0f,  10.0f,  50, 25, {1,1,1,1,1,1,1,1}},
-    {rr_petal_id_dako_egg,  rr_rarity_id_unusual,   defensive,  1.0f,  75.0f,  10.0f,  25, 50, {6,5,5,4,4,4,3,2}},
+    {rr_petal_id_dako_egg,  rr_rarity_id_unusual,   defensive,  1.0f,  75.0f,  10.0f,  25, 50, {6,5,5,5,4,4,4,3}},
     {rr_petal_id_pter_egg,  rr_rarity_id_unusual,   defensive,  1.0f,  75.0f,  10.0f,  25, 50, {6,5,5,4,4,4,3,2}},
     {rr_petal_id_fern_egg,  rr_rarity_id_common,   defensive,  1.0f,  75.0f,  10.0f,  25, 25, {6,6,6,5,5,5,3,2}},
     {rr_petal_id_tree_egg,  rr_rarity_id_common,   defensive,  1.0f,  75.0f,  10.0f,  25, 150, {1,1,1,1,1,1,1,1}},
@@ -94,7 +94,7 @@ struct rr_petal_data RR_PETAL_DATA[rr_petal_id_max] = {
     {rr_petal_id_eggTest,    rr_rarity_id_unusual,   defensive,  1.0f,  75.0f,  10.0f,  25,100, {1,1,1,1,1,1,1,1}},
     {rr_petal_id_permastun,      rr_rarity_id_mythic,   defensive,  0.0f,  1000000000.0f,  0.0f,  0.0,  0, {1,1,1,1,1,1,1,1}},
     {rr_petal_id_superfling,      rr_rarity_id_common,   defensive,  0.0f,  1000000000.0f,  0.0f,  0.0,  0, {1,1,1,1,1,1,1,1}},
-    {rr_petal_id_permastun_obtainable, rr_rarity_id_mythic,   defensive,  0.0f,  5.0f,  1500.0f,  0.0,  0, {1,1,1,1,1,1,1,1}},
+    {rr_petal_id_permastun_obtainable, rr_rarity_id_mythic,   defensive,  0.0f,  5.0f,  0.0f,  1500,  0, {1,1,1,1,1,1,1,1}},
 
 };    
 
@@ -241,7 +241,7 @@ struct rr_mob_rarity_scale RR_MOB_RARITY_SCALING[rr_rarity_id_max] = {
     {40,     8.5,  2.8},
     {192,    14.5, 4  },
     {2560,   24.6, 5.5},
-    {38400,  42,   7  },
+    {29400,  42,   7  },
 };
 // clang-format on
 
@@ -257,7 +257,7 @@ double RR_MOB_WAVE_RARITY_COEFFICIENTS[rr_rarity_id_max + 1] = {
     0, 1, 6, 10, 15, 25, 160, 1200, 250};
 
 double RR_DROP_RARITY_COEFFICIENTS[rr_rarity_id_exotic + 2] = {
-       0, 1, 3, 8, 20, 20, 1400, 500};
+       0, 1, 3, 8, 20, 20, 1700, 200};
 double RR_MOB_LOOT_RARITY_COEFFICIENTS[rr_rarity_id_max] = {2.5, 4,  6,   15,
                                                             35,  50, 125, 150};
 
@@ -614,9 +614,9 @@ RR_DEFINE_MAZE(HELL_CREEK, 80) = {
 {_,_,_,M,M,_,_,M,x,x,_,x,_,x,x,x,_,_,_,m,m,m,_,_,_,_,x,x,x,x,x,x,x,_,a,a,_,_,_,_}, // 20
 {_,_,_,_,M,_,_,M,_,_,_,_,_,x,_,_,_,m,m,m,m,m,m,m,L,_,_,_,x,x,x,_,_,_,a,_,_,_,_,_}, // 21
 {_,_,_,_,M,M,M,M,M,M,M,_,_,_,_,m,m,m,_,_,_,_,_,_,L,L,L,_,_,_,_,_,_,_,_,_,L,_,_,_}, // 22
-{_,_,_,M,M,_,_,_,M,M,M,M,_,_,m,m,m,_,_,_,m,m,m,_,_,_,L,L,_,_,l,l,_,_,l,_,l,l,_,_}, // 23
-{_,_,_,M,_,_,_,_,_,M,M,M,_,m,m,m,_,_,m,_,_,m,m,L,L,_,_,L,_,l,l,l,l,l,l,_,l,l,l,_}, // 24
-{_,_,_,M,M,_,M,M,_,_,M,_,_,m,m,_,_,m,m,m,_,m,m,L,L,L,_,L,_,l,l,l,_,l,l,_,l,l,l,_}, // 25
+{_,_,_,M,M,_,_,_,M,M,M,x,_,_,m,m,m,_,_,_,m,m,m,_,_,_,L,L,_,_,l,l,_,_,l,_,l,l,_,_}, // 23
+{_,_,_,M,_,_,_,_,_,M,x,x,_,m,m,m,_,_,m,_,_,m,m,L,L,_,_,L,_,l,l,l,l,l,l,_,l,l,l,_}, // 24
+{_,_,_,M,M,_,M,M,_,_,x,_,_,m,m,_,_,m,m,m,_,m,m,L,L,L,_,L,_,l,l,l,_,l,l,_,l,l,l,_}, // 25
 {_,_,M,M,M,M,M,M,M,_,_,_,m,m,_,_,m,m,m,m,m,m,_,L,L,L,_,L,_,_,l,l,_,l,l,l,l,l,_,_}, // 26
 {_,M,M,M,_,_,_,_,M,M,m,m,m,m,_,m,m,_,_,m,m,_,_,L,L,L,L,L,_,_,_,l,_,_,l,l,l,l,_,_}, // 27
 {x,x,_,_,_,_,_,_,_,_,_,_,_,m,_,_,m,_,m,m,m,_,L,L,_,_,L,L,l,_,_,l,_,_,_,E,E,E,_,_}, // 28
