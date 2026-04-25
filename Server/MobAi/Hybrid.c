@@ -68,6 +68,82 @@ void tick_ai_default(EntityIdx entity, struct rr_simulation *simulation,
         break;
     }
 }
+void tick_ai_dakotaraptor(EntityIdx entity, struct rr_simulation *simulation,
+                     float speed)
+{
+    struct rr_component_ai *ai = rr_simulation_get_ai(simulation, entity);
+    struct rr_component_physical *physical =
+        rr_simulation_get_physical(simulation, entity);
+    if (ai->ai_type == rr_ai_type_none)
+        return;
+    if (should_aggro(simulation, ai))
+    {
+        ai->ai_state = rr_ai_state_attacking;
+        ai->ticks_until_next_action = 25;
+    }
+
+    switch (ai->ai_state)
+    {
+    case rr_ai_state_idle:
+        tick_idle(entity, simulation);
+        break;
+
+    case rr_ai_state_idle_moving:
+        tick_idle_move_default(entity, simulation);
+        break;
+    case rr_ai_state_attacking:
+    {
+        struct rr_vector accel;
+        struct rr_component_physical *physical2 =
+            rr_simulation_get_physical(simulation, ai->target_entity);
+
+        struct rr_vector delta = {physical2->x, physical2->y};
+        struct rr_vector target_pos = {physical->x, physical->y};
+        rr_vector_sub(&delta, &target_pos);
+        // struct rr_vector prediction = predict(delta, physical2->velocity, 4);
+        float target_angle = rr_vector_theta(&delta);
+
+        rr_component_physical_set_angle(
+            physical, rr_angle_lerp(physical->angle, target_angle, 0.4));
+
+        rr_vector_from_polar(&accel, speed, physical->angle);
+        rr_vector_add(&physical->acceleration, &accel);
+        if (ai->ticks_until_next_action == 0)
+        {
+            if (rr_simulation_get_mob(simulation, entity)->rarity >=
+                rr_rarity_id_exotic)
+                ai->ai_state = rr_ai_state_exotic_special;
+            ai->ticks_until_next_action = 50;
+        }        break;
+    }
+    case rr_ai_state_exotic_special:
+    {
+        struct rr_vector accel;
+        struct rr_component_physical *physical2 =
+            rr_simulation_get_physical(simulation, ai->target_entity);
+
+        struct rr_vector delta = {physical2->x, physical2->y};
+        struct rr_vector target_pos = {physical->x, physical->y};
+        rr_vector_sub(&delta, &target_pos);
+        // struct rr_vector prediction = predict(delta, physical2->velocity, 4);
+        float target_angle = rr_vector_theta(&delta);
+
+        rr_component_physical_set_angle(
+            physical, rr_angle_lerp(physical->angle, target_angle, 0.4));
+
+        rr_vector_from_polar(&accel, speed * 1.5, physical->angle);
+        rr_vector_add(&physical->acceleration, &accel);
+        if (ai->ticks_until_next_action == 0)
+        {
+            ai->ai_state = rr_ai_state_attacking;
+            ai->ticks_until_next_action = 200;
+        }
+        break;
+    }
+    default:
+        break;
+    }
+}
 
 void tick_ai_triceratops(EntityIdx entity, struct rr_simulation *simulation)
 {
@@ -587,8 +663,11 @@ void tick_ai_meteor(EntityIdx entity, struct rr_simulation *simulation)
     }
 }
 
+
 void tick_ai_quetzalcoaltus(EntityIdx entity, struct rr_simulation *simulation)
 {
+
+
     struct rr_component_ai *ai = rr_simulation_get_ai(simulation, entity);
     struct rr_component_physical *physical =
         rr_simulation_get_physical(simulation, entity);
@@ -596,7 +675,6 @@ void tick_ai_quetzalcoaltus(EntityIdx entity, struct rr_simulation *simulation)
     if (should_aggro(simulation, ai))
         ai->ai_state = rr_ai_state_attacking;
     physical->knockback_scale = 1;
-
     switch (ai->ai_state)
     {
     case rr_ai_state_idle:
@@ -610,6 +688,31 @@ void tick_ai_quetzalcoaltus(EntityIdx entity, struct rr_simulation *simulation)
         physical->knockback_scale = 10;
         struct rr_component_physical *physical2 =
             rr_simulation_get_physical(simulation, ai->target_entity);
+        struct rr_vector delta = {physical2->x, physical2->y};
+        struct rr_vector target_pos = {physical->x, physical->y};
+        rr_vector_sub(&delta, &target_pos);
+        rr_component_physical_set_angle(physical, rr_vector_theta(&delta));
+        if (ai->ticks_until_next_action == 0)
+        {
+            if (rr_frand() < 0.05 && rr_simulation_get_mob(simulation, entity)->rarity >=
+                                rr_rarity_id_exotic)
+            {
+                ai->ai_state = rr_ai_state_exotic_special;
+                ai->ticks_until_next_action = 40;
+            } else {
+                ai->ticks_until_next_action = 20;
+                rr_vector_from_polar(&delta, RR_PLAYER_SPEED * 18, physical->angle);
+                rr_vector_add(&physical->acceleration, &delta);
+            }
+
+        }
+        break;
+    }
+    case rr_ai_state_exotic_special:
+    {
+        physical->knockback_scale = 125;
+        struct rr_component_physical *physical2 =
+            rr_simulation_get_physical(simulation, ai->target_entity);
 
         struct rr_vector delta = {physical2->x, physical2->y};
         struct rr_vector target_pos = {physical->x, physical->y};
@@ -619,8 +722,9 @@ void tick_ai_quetzalcoaltus(EntityIdx entity, struct rr_simulation *simulation)
         {
             ai->ticks_until_next_action = 20;
 
-            rr_vector_from_polar(&delta, RR_PLAYER_SPEED * 18, physical->angle);
+            rr_vector_from_polar(&delta, RR_PLAYER_SPEED * 54, physical->angle);
             rr_vector_add(&physical->acceleration, &delta);
+            ai->ai_state = rr_ai_state_attacking;
         }
         break;
     }
