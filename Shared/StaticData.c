@@ -48,7 +48,7 @@ struct rr_petal_data RR_PETAL_DATA[rr_petal_id_max] = {
 //   id                     min_rarity              scale        dmg      hp   clump   cd 2cd  count
     {rr_petal_id_none,      rr_rarity_id_common,    offensive,  0.0f,   0.0f,   0.0f,   0,  0, {0,0,0,0,0,0,0,0}},
     {rr_petal_id_basic,     rr_rarity_id_common,    offensive, 10.0f,  15.0f,   0.0f,  50,  0, {1,1,1,1,1,1,1,1}},
-    {rr_petal_id_pellet,    rr_rarity_id_common,    offensive,  9.0f,   5.0f,   0.0f,  13,  0, {1,2,2,3,3,5,6,6}},
+    {rr_petal_id_pellet,    rr_rarity_id_common,    offensive,  10.0f,   5.0f,   0.0f,  13,  0, {1,2,2,3,3,5,6,6}},
     {rr_petal_id_fossil,    rr_rarity_id_common,    offensive,  6.0f, 150.0f,   0.0f, 100,  0, {1,1,1,1,1,1,1,1}},
     {rr_petal_id_stinger,   rr_rarity_id_common,    offensive, 70.0f,   3.0f,  10.0f, 150,  0, {1,1,1,1,1,3,5,5}},
     {rr_petal_id_berry,     rr_rarity_id_rare,      offensive,  8.0f,   5.0f,  12.0f,  13,  0, {1,1,1,1,1,2,3,3}},
